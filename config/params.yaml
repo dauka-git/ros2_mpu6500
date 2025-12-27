@@ -1,0 +1,11 @@
+# Sensor related parameters
+mpu6500_sensor:
+  ros__parameters:
+    # [rad/s]
+    gyro_x_offset: 0.0
+    gyro_y_offset: 0.0
+    gyro_z_offset: 0.0
+    # [m/s²]
+    accel_x_offset: 0.0
+    accel_y_offset: 0.0
+    accel_z_offset: 0.0
