@@ -118,11 +118,16 @@ Mpu6500Hal::Mpu6500_Error_t Mpu6500::Mpu6500_GetAccelData(Mpu6500_AccelData_t &A
     float accel_g[3];
     int16_t gyro_raw[3];
     float gyro_dps[3];
-    uint16_t len;
+    uint16_t len = 1;  // Set to 1 to read one sample
 
     uint8_t res = mpu6500_read(&handle_, &accel_raw, &accel_g, &gyro_raw, &gyro_dps, &len);
     if (res != 0) {
-        std::cerr << "Failed to read MPU6500 data" << std::endl;
+        std::cerr << "Failed to read MPU6500 data (error: " << static_cast<int>(res) << ")" << std::endl;
+        return Mpu6500Hal::MPU6500_ERR;
+    }
+
+    if (len == 0) {
+        std::cerr << "MPU6500 read returned length 0" << std::endl;
         return Mpu6500Hal::MPU6500_ERR;
     }
 
@@ -146,11 +151,16 @@ Mpu6500Hal::Mpu6500_Error_t Mpu6500::Mpu6500_GetGyroData(Mpu6500_GyroData_t &Gyr
     float accel_g[3];
     int16_t gyro_raw[3];
     float gyro_dps[3];
-    uint16_t len;
+    uint16_t len = 1;  // Set to 1 to read one sample
 
     uint8_t res = mpu6500_read(&handle_, &accel_raw, &accel_g, &gyro_raw, &gyro_dps, &len);
     if (res != 0) {
-        std::cerr << "Failed to read MPU6500 data" << std::endl;
+        std::cerr << "Failed to read MPU6500 data (error: " << static_cast<int>(res) << ")" << std::endl;
+        return Mpu6500Hal::MPU6500_ERR;
+    }
+
+    if (len == 0) {
+        std::cerr << "MPU6500 read returned length 0" << std::endl;
         return Mpu6500Hal::MPU6500_ERR;
     }
 
