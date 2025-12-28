@@ -13,7 +13,7 @@ extern "C" {
 
 class Mpu6500 {
 public:
-    explicit Mpu6500(const std::string &device = "/dev/i2c-1", int i2c_address = MPU6500_ADDRESS_AD0_LOW);
+    explicit Mpu6500(const std::string &device = "/dev/i2c-7", int i2c_address = MPU6500_ADDRESS_AD0_LOW);
 
     ~Mpu6500();
 
@@ -21,18 +21,18 @@ public:
      * @brief Accelerometer data
      */
     typedef struct{
-        double Accel_X;     /** @brief Accel X data */
-        double Accel_Y;     /** @brief Accel Y data */
-        double Accel_Z;     /** @brief Accel Z data */
+        double Accel_X;     /** @brief Accel X data in m/s² */
+        double Accel_Y;     /** @brief Accel Y data in m/s² */
+        double Accel_Z;     /** @brief Accel Z data in m/s² */
     } Mpu6500_AccelData_t;
 
     /**
      * @brief Gyroscope data
      */
     typedef struct{
-        double Gyro_X;     /** @brief Gyro X data */
-        double Gyro_Y;     /** @brief Gyro Y data */
-        double Gyro_Z;     /** @brief Gyro Z data */
+        double Gyro_X;     /** @brief Gyro X data in rad/s */
+        double Gyro_Y;     /** @brief Gyro Y data in rad/s */
+        double Gyro_Z;     /** @brief Gyro Z data in rad/s */
     } Mpu6500_GyroData_t;
 
     /**

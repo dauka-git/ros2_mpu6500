@@ -1,11 +1,13 @@
-# Sensor related parameters
 mpu6500_sensor:
   ros__parameters:
-    # [rad/s]
+    i2c_device: "/dev/i2c-7"  # Changed from /dev/i2c-1
+    i2c_address: 0x68          # Keep this (or 0x69 if AD0 is high)
+    publish_rate_hz: 100
+    frame_id: "imu_link"
+    
     gyro_x_offset: 0.0
     gyro_y_offset: 0.0
     gyro_z_offset: 0.0
-    # [m/s²]
     accel_x_offset: 0.0
     accel_y_offset: 0.0
     accel_z_offset: 0.0
