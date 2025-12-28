@@ -5,9 +5,9 @@ mpu6500_sensor:
     publish_rate_hz: 100
     frame_id: "imu_link"
     
-    gyro_x_offset: 0.0
-    gyro_y_offset: 0.0
-    gyro_z_offset: 0.0
-    accel_x_offset: 0.0
-    accel_y_offset: 0.0
-    accel_z_offset: 0.0
+    gyro_x_offset: -0.133
+    gyro_y_offset: 0.042
+    gyro_z_offset: 0.013
+    accel_x_offset: -0.32
+    accel_y_offset: 0.01
+    accel_z_offset: 8.86
