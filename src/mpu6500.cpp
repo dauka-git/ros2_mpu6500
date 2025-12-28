@@ -114,21 +114,23 @@ Mpu6500Hal::Mpu6500_Error_t Mpu6500::Mpu6500_GetAccelData(Mpu6500_AccelData_t &A
         return Mpu6500Hal::MPU6500_ERR;
     }
 
-    // Read directly from registers using libdriver's read_accel function
-    int16_t accel_raw[3][1];
-    float accel_g[3][1];
-    
-    uint8_t res = mpu6500_read_accel(&handle_, accel_raw, accel_g);
+    int16_t accel_raw[3];
+    float accel_g[3];
+    int16_t gyro_raw[3];
+    float gyro_dps[3];
+    uint16_t len;
+
+    uint8_t res = mpu6500_read(&handle_, &accel_raw, &accel_g, &gyro_raw, &gyro_dps, &len);
     if (res != 0) {
-        std::cerr << "Failed to read accelerometer" << std::endl;
+        std::cerr << "Failed to read MPU6500 data" << std::endl;
         return Mpu6500Hal::MPU6500_ERR;
     }
 
     // Convert g to m/s² (1g = 9.80665 m/s²)
     const double G_TO_MS2 = 9.80665;
-    AccelData.Accel_X = accel_g[0][0] * G_TO_MS2;
-    AccelData.Accel_Y = accel_g[1][0] * G_TO_MS2;
-    AccelData.Accel_Z = accel_g[2][0] * G_TO_MS2;
+    AccelData.Accel_X = accel_g[0] * G_TO_MS2;
+    AccelData.Accel_Y = accel_g[1] * G_TO_MS2;
+    AccelData.Accel_Z = accel_g[2] * G_TO_MS2;
 
     return Mpu6500Hal::MPU6500_OK;
 }
@@ -140,21 +142,23 @@ Mpu6500Hal::Mpu6500_Error_t Mpu6500::Mpu6500_GetGyroData(Mpu6500_GyroData_t &Gyr
         return Mpu6500Hal::MPU6500_ERR;
     }
 
-    // Read directly from registers using libdriver's read_gyro function
-    int16_t gyro_raw[3][1];
-    float gyro_dps[3][1];
-    
-    uint8_t res = mpu6500_read_gyro(&handle_, gyro_raw, gyro_dps);
+    int16_t accel_raw[3];
+    float accel_g[3];
+    int16_t gyro_raw[3];
+    float gyro_dps[3];
+    uint16_t len;
+
+    uint8_t res = mpu6500_read(&handle_, &accel_raw, &accel_g, &gyro_raw, &gyro_dps, &len);
     if (res != 0) {
-        std::cerr << "Failed to read gyroscope" << std::endl;
+        std::cerr << "Failed to read MPU6500 data" << std::endl;
         return Mpu6500Hal::MPU6500_ERR;
     }
 
     // Convert degrees per second to radians per second
     const double DEG_TO_RAD = M_PI / 180.0;
-    GyroData.Gyro_X = gyro_dps[0][0] * DEG_TO_RAD;
-    GyroData.Gyro_Y = gyro_dps[1][0] * DEG_TO_RAD;
-    GyroData.Gyro_Z = gyro_dps[2][0] * DEG_TO_RAD;
+    GyroData.Gyro_X = gyro_dps[0] * DEG_TO_RAD;
+    GyroData.Gyro_Y = gyro_dps[1] * DEG_TO_RAD;
+    GyroData.Gyro_Z = gyro_dps[2] * DEG_TO_RAD;
 
     return Mpu6500Hal::MPU6500_OK;
 }
