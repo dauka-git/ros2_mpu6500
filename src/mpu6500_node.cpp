@@ -26,20 +26,22 @@ Mpu6500Node::Mpu6500Node(const std::string& name)
     accel_y_offset_ = this->get_parameter("accel_y_offset").as_double();
     accel_z_offset_ = this->get_parameter("accel_z_offset").as_double();
 
-    publisher_ = this->create_publisher<sensor_msgs::msg::Imu>("imu/mpu6500", 10);
+    RCLCPP_INFO(this->get_logger(), "IMU Calibration Offsets:");
+    RCLCPP_INFO(this->get_logger(), "  Gyro: [%.4f, %.4f, %.4f] rad/s", 
+                gyro_x_offset_, gyro_y_offset_, gyro_z_offset_);
+    RCLCPP_INFO(this->get_logger(), "  Accel: [%.4f, %.4f, %.4f] m/s²", 
+                accel_x_offset_, accel_y_offset_, accel_z_offset_);
+
+    publisher_ = this->create_publisher<sensor_msgs::msg::Imu>("imu/data", 10);
 
     timer_ = this->create_wall_timer(10ms, std::bind(&Mpu6500Node::ImuPubCallback, this));
 }
 
 void Mpu6500Node::ImuPubCallback()
 {
-    const double GRAVITY = 9.80665;
-    const double DEG_TO_RAD = M_PI / 180.0;
-
     auto message = sensor_msgs::msg::Imu();
     message.header.stamp = this->get_clock()->now();
-    message.header.frame_id = "base_link";
-    message.linear_acceleration_covariance = {0};
+    message.header.frame_id = "imu_link";
 
     /* Read IMU data */
     Mpu6500::Mpu6500_AccelData_t AccelData;
@@ -55,30 +57,40 @@ void Mpu6500Node::ImuPubCallback()
         return;
     }
 
-    message.linear_acceleration.x = (AccelData.Accel_X - accel_x_offset_) * GRAVITY;
-    message.linear_acceleration.y = (AccelData.Accel_Y - accel_y_offset_) * GRAVITY;
-    message.linear_acceleration.z = (AccelData.Accel_Z - accel_z_offset_) * GRAVITY;
-    message.angular_velocity_covariance[0] = {0};
-    message.angular_velocity.x = (GyroData.Gyro_X - gyro_x_offset_) * DEG_TO_RAD;
-    message.angular_velocity.y = (GyroData.Gyro_Y - gyro_y_offset_) * DEG_TO_RAD;
-    message.angular_velocity.z = (GyroData.Gyro_Z - gyro_z_offset_) * DEG_TO_RAD;
+    // Data is already in m/s² and rad/s, just apply offsets (NO double conversion!)
+    message.linear_acceleration.x = AccelData.Accel_X - accel_x_offset_;
+    message.linear_acceleration.y = AccelData.Accel_Y - accel_y_offset_;
+    message.linear_acceleration.z = AccelData.Accel_Z - accel_z_offset_;
+    
+    message.angular_velocity.x = GyroData.Gyro_X - gyro_x_offset_;
+    message.angular_velocity.y = GyroData.Gyro_Y - gyro_y_offset_;
+    message.angular_velocity.z = GyroData.Gyro_Z - gyro_z_offset_;
 
-    RCLCPP_INFO(this->get_logger(), "Accel: x=%.3f, y=%.3f, z=%.3f | Gyro: x=%.3f, y=%.3f, z=%.3f",
-                AccelData.Accel_X, AccelData.Accel_Y, AccelData.Accel_Z,
-                GyroData.Gyro_X, GyroData.Gyro_Y, GyroData.Gyro_Z);
+    // Set covariance matrices (diagonal values)
+    // Angular velocity covariance (based on gyro noise: 0.01 °/s/√Hz)
+    message.angular_velocity_covariance[0] = 0.0001;  // x variance
+    message.angular_velocity_covariance[4] = 0.0001;  // y variance
+    message.angular_velocity_covariance[8] = 0.0001;  // z variance
+    
+    // Linear acceleration covariance (based on accel noise: 300 μg/√Hz)
+    message.linear_acceleration_covariance[0] = 0.01;  // x variance
+    message.linear_acceleration_covariance[4] = 0.01;  // y variance
+    message.linear_acceleration_covariance[8] = 0.01;  // z variance
 
-    message.orientation_covariance[0] = -1;
-    message.orientation.x = 0;
-    message.orientation.y = 0;
-    message.orientation.z = 0;
-    message.orientation.w = 0;
+    // Orientation is not calculated (no magnetometer)
+    message.orientation_covariance[0] = -1.0;  // Indicates unknown orientation
+    message.orientation.x = 0.0;
+    message.orientation.y = 0.0;
+    message.orientation.z = 0.0;
+    message.orientation.w = 0.0;
+
     publisher_->publish(message);
 }
 
 int main(int argc, char* argv[])
 {
     rclcpp::init(argc, argv);
-    auto node = std::make_shared<Mpu6500Node>("mpu6500publisher");
+    auto node = std::make_shared<Mpu6500Node>("mpu6500_sensor");
     rclcpp::spin(node);
     rclcpp::shutdown();
     return 0;

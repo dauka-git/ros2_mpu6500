@@ -49,15 +49,15 @@ Mpu6500::Mpu6500(const std::string &device, int i2c_address)
         throw std::runtime_error("MPU6500: Initialization failed");
     }
 
-    // Configure gyroscope - ±2000°/s range
-    if (mpu6500_set_gyroscope_range(&handle_, MPU6500_GYROSCOPE_RANGE_2000DPS) != 0) {
+    // Configure gyroscope - ±250°/s range (CHANGED from 2000)
+    if (mpu6500_set_gyroscope_range(&handle_, MPU6500_GYROSCOPE_RANGE_250DPS) != 0) {
         std::cerr << "Failed to set gyroscope range" << std::endl;
         mpu6500_deinit(&handle_);
         throw std::runtime_error("MPU6500: Failed to configure gyroscope");
     }
 
-    // Configure accelerometer - ±8g range
-    if (mpu6500_set_accelerometer_range(&handle_, MPU6500_ACCELEROMETER_RANGE_8G) != 0) {
+    // Configure accelerometer - ±2g range (CHANGED from 8g)
+    if (mpu6500_set_accelerometer_range(&handle_, MPU6500_ACCELEROMETER_RANGE_2G) != 0) {
         std::cerr << "Failed to set accelerometer range" << std::endl;
         mpu6500_deinit(&handle_);
         throw std::runtime_error("MPU6500: Failed to configure accelerometer");
@@ -77,24 +77,23 @@ Mpu6500::Mpu6500(const std::string &device, int i2c_address)
         throw std::runtime_error("MPU6500: Failed to set filter");
     }
 
-    // Set sample rate divider (1kHz / (1 + 0) = 1kHz)
-    if (mpu6500_set_sample_rate_divider(&handle_, 0) != 0) {
+    // Set sample rate divider (1kHz / (1 + 9) = 100Hz)
+    if (mpu6500_set_sample_rate_divider(&handle_, 9) != 0) {
         std::cerr << "Failed to set sample rate divider" << std::endl;
         mpu6500_deinit(&handle_);
         throw std::runtime_error("MPU6500: Failed to set sample rate");
     }
 
-    // Disable FIFO - we'll read directly from registers instead
+    // Disable FIFO
     if (mpu6500_set_fifo(&handle_, MPU6500_BOOL_FALSE) != 0) {
         std::cerr << "Warning: Failed to disable FIFO" << std::endl;
     }
 
     std::cout << "MPU6500 initialized successfully!" << std::endl;
-    std::cout << "  - Gyroscope range: ±2000°/s" << std::endl;
-    std::cout << "  - Accelerometer range: ±8g" << std::endl;
+    std::cout << "  - Gyroscope range: ±250°/s" << std::endl;
+    std::cout << "  - Accelerometer range: ±2g" << std::endl;
     std::cout << "  - Low-pass filter: 92Hz" << std::endl;
-    std::cout << "  - Sample rate: 1kHz" << std::endl;
-    std::cout << "  - Reading directly from registers" << std::endl;
+    std::cout << "  - Sample rate: 100Hz" << std::endl;
     
     initialized_ = true;
 }
@@ -118,9 +117,9 @@ Mpu6500Hal::Mpu6500_Error_t Mpu6500::Mpu6500_GetAccelData(Mpu6500_AccelData_t &A
     float accel_g[3];
     int16_t gyro_raw[3];
     float gyro_dps[3];
-    uint16_t len = 1;  // Set to 1 to read one sample
+    uint16_t len = 1;
 
-    uint8_t res = mpu6500_read(&handle_, &accel_raw, &accel_g, &gyro_raw, &gyro_dps, &len);
+    uint8_t res = mpu6500_read(&handle_, accel_raw, accel_g, gyro_raw, gyro_dps, &len);
     if (res != 0) {
         std::cerr << "Failed to read MPU6500 data (error: " << static_cast<int>(res) << ")" << std::endl;
         return Mpu6500Hal::MPU6500_ERR;
@@ -131,7 +130,7 @@ Mpu6500Hal::Mpu6500_Error_t Mpu6500::Mpu6500_GetAccelData(Mpu6500_AccelData_t &A
         return Mpu6500Hal::MPU6500_ERR;
     }
 
-    // Convert g to m/s² (1g = 9.80665 m/s²)
+    // libdriver already converts to g, just convert g to m/s²
     const double G_TO_MS2 = 9.80665;
     AccelData.Accel_X = accel_g[0] * G_TO_MS2;
     AccelData.Accel_Y = accel_g[1] * G_TO_MS2;
@@ -151,9 +150,9 @@ Mpu6500Hal::Mpu6500_Error_t Mpu6500::Mpu6500_GetGyroData(Mpu6500_GyroData_t &Gyr
     float accel_g[3];
     int16_t gyro_raw[3];
     float gyro_dps[3];
-    uint16_t len = 1;  // Set to 1 to read one sample
+    uint16_t len = 1;
 
-    uint8_t res = mpu6500_read(&handle_, &accel_raw, &accel_g, &gyro_raw, &gyro_dps, &len);
+    uint8_t res = mpu6500_read(&handle_, accel_raw, accel_g, gyro_raw, gyro_dps, &len);
     if (res != 0) {
         std::cerr << "Failed to read MPU6500 data (error: " << static_cast<int>(res) << ")" << std::endl;
         return Mpu6500Hal::MPU6500_ERR;
@@ -164,7 +163,7 @@ Mpu6500Hal::Mpu6500_Error_t Mpu6500::Mpu6500_GetGyroData(Mpu6500_GyroData_t &Gyr
         return Mpu6500Hal::MPU6500_ERR;
     }
 
-    // Convert degrees per second to radians per second
+    // libdriver already converts to degrees/sec, just convert to rad/s
     const double DEG_TO_RAD = M_PI / 180.0;
     GyroData.Gyro_X = gyro_dps[0] * DEG_TO_RAD;
     GyroData.Gyro_Y = gyro_dps[1] * DEG_TO_RAD;
