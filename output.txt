@@ -1,138 +1,866 @@
-Script started on 2025-12-28 18:00:40+05:00 [TERM="xterm-256color" TTY="/dev/pts/2" COLUMNS="80" LINES="24"]
-not found: "/home/jetson/ros2_ws/install/ros2_mpu6500/share/ros2_mpu6500/local_setup.bash"
-[?2004h]0;jetson@ubuntu: ~/ros2_ws[01;32mjetson@ubuntu[00m:[01;34m~/ros2_ws[00m$ [7mcd ~/ros2_ws[27m
-
-[7m# 1. Clean everything[27m
-[7mrm -rf build/ install/ log/[27m
-
-[7m# 2. Rebuild[27m
-[7mcolcon build --packages-select ros2_mpu6500 --event-handlers console_direct+[27m
-
-[7m# 3. Source workspace[27m
-[7msource install/setup.bash[27m
-
-[7m# 4. Set I2C permissions[27m
-[7msudo chmod 666 /dev/i2c-7[27m
-
-[7m# 5. Launch[27m
-[7mros2 launch ros2_mpu6500 ros2_mpu6500.launch.py[27m[A[A[A[A[A[A[A[A[A[A[A[A[A[A[Acd ~/ros2_ws
-
-# 1. Clean everything
-rm -rf build/ install/ log/
-
-# 2. Rebuild
-colcon build --packages-select ros2_mpu6500 --event-handlers console_direct+
-
-# 3. Source workspace
-source install/setup.bash
-
-# 4. Set I2C permissions
-sudo chmod 666 /dev/i2c-7
-
-# 5. Launch
-ros2 launch ros2_mpu6500 ros2_mpu6500.launch.py
-[?2004l[0.793s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/jetson/ros2_ws/install/ros2_mpu6500' in the environment variable AMENT_PREFIX_PATH doesn't exist
-[0.794s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/jetson/ros2_ws/install/ros2_mpu6050' in the environment variable AMENT_PREFIX_PATH doesn't exist
-[0.794s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/jetson/ros2_ws/install/realsense2_description' in the environment variable AMENT_PREFIX_PATH doesn't exist
-[0.794s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/jetson/ros2_ws/install/realsense2_camera' in the environment variable AMENT_PREFIX_PATH doesn't exist
-[0.794s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/jetson/ros2_ws/install/realsense2_camera_msgs' in the environment variable AMENT_PREFIX_PATH doesn't exist
-[0.794s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/home/jetson/ros2_ws/install/ros2_mpu6500' in the environment variable CMAKE_PREFIX_PATH doesn't exist
-[0.794s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/home/jetson/ros2_ws/install/ros2_mpu6050' in the environment variable CMAKE_PREFIX_PATH doesn't exist
-[0.794s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/home/jetson/ros2_ws/install/realsense2_description' in the environment variable CMAKE_PREFIX_PATH doesn't exist
-[0.794s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/home/jetson/ros2_ws/install/realsense2_camera' in the environment variable CMAKE_PREFIX_PATH doesn't exist
-[0.794s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/home/jetson/ros2_ws/install/realsense2_camera_msgs' in the environment variable CMAKE_PREFIX_PATH doesn't exist
-[0.7s] [0/0 complete]                     Starting >>> ros2_mpu6500
-]0;colcon build [0/1 done] [1 ongoing][0.8s] [0/1 complete] [ros2_mpu6500:cmake - 0.1s]                                                 -- The C compiler identification is GNU 11.4.0
-[0.9s] [0/1 complete] [ros2_mpu6500:cmake - 0.2s]                                                 -- The CXX compiler identification is GNU 11.4.0
--- Detecting C compiler ABI info
-[1.0s] [0/1 complete] [ros2_mpu6500:cmake - 0.3s]                                                 -- Detecting C compiler ABI info - done
-[1.1s] [0/1 complete] [ros2_mpu6500:cmake - 0.4s]                                                 -- Check for working C compiler: /usr/bin/cc - skipped
--- Detecting C compile features
--- Detecting C compile features - done
--- Detecting CXX compiler ABI info
-[1.2s] [0/1 complete] [ros2_mpu6500:cmake - 0.5s]                                                 -- Detecting CXX compiler ABI info - done
-[1.3s] [0/1 complete] [ros2_mpu6500:cmake - 0.6s]                                                 -- Check for working CXX compiler: /usr/bin/c++ - skipped
--- Detecting CXX compile features
--- Detecting CXX compile features - done
--- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
-[1.4s] [0/1 complete] [ros2_mpu6500:cmake - 0.7s]                                                 [1.5s] [0/1 complete] [ros2_mpu6500:cmake - 0.8s]                                                 [1.6s] [0/1 complete] [ros2_mpu6500:cmake - 0.9s]                                                 -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
-[1.7s] [0/1 complete] [ros2_mpu6500:cmake - 1.0s]                                                 [1.8s] [0/1 complete] [ros2_mpu6500:cmake - 1.1s]                                                 -- Found rclcpp: 16.0.16 (/opt/ros/humble/share/rclcpp/cmake)
-[1.9s] [0/1 complete] [ros2_mpu6500:cmake - 1.2s]                                                 -- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)
--- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)
--- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
--- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
-[2.0s] [0/1 complete] [ros2_mpu6500:cmake - 1.3s]                                                 -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
--- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
-[2.1s] [0/1 complete] [ros2_mpu6500:cmake - 1.4s]                                                 -- Found rmw_fastrtps_cpp: 6.2.9 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
-[2.2s] [0/1 complete] [ros2_mpu6500:cmake - 1.5s]                                                 -- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "3.0.2")  
-[2.3s] [0/1 complete] [ros2_mpu6500:cmake - 1.6s]                                                 -- Found FastRTPS: /opt/ros/humble/include  
--- Using RMW implementation 'rmw_fastrtps_cpp' as default
-[2.4s] [0/1 complete] [ros2_mpu6500:cmake - 1.7s]                                                 -- Looking for pthread.h
-[2.5s] [0/1 complete] [ros2_mpu6500:cmake - 1.8s]                                                 -- Looking for pthread.h - found
--- Performing Test CMAKE_HAVE_LIBC_PTHREAD
-[2.6s] [0/1 complete] [ros2_mpu6500:cmake - 1.9s]                                                 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
-[2.7s] [0/1 complete] [ros2_mpu6500:cmake - 2.0s]                                                 -- Found Threads: TRUE  
-[2.8s] [0/1 complete] [ros2_mpu6500:cmake - 2.1s]                                                 -- Found sensor_msgs: 4.9.0 (/opt/ros/humble/share/sensor_msgs/cmake)
--- Found ament_lint_auto: 0.12.14 (/opt/ros/humble/share/ament_lint_auto/cmake)
-[2.9s] [0/1 complete] [ros2_mpu6500:cmake - 2.2s]                                                 [3.0s] [0/1 complete] [ros2_mpu6500:cmake - 2.3s]                                                 -- Added test 'copyright' to check source files copyright and LICENSE
--- Added test 'cppcheck' to perform static code analysis on C / C++ code
--- Configured cppcheck include dirs: /home/jetson/ros2_ws/src/ros2_mpu6500/include;/home/jetson/ros2_ws/src/ros2_mpu6500/../mpu6500/src;/home/jetson/ros2_ws/src/ros2_mpu6500/../mpu6500/interface
--- Configured cppcheck exclude dirs and/or files: 
--- Added test 'cpplint' to check C / C++ code against the Google style
--- Configured cpplint exclude dirs and/or files: 
--- Added test 'flake8' to check Python code syntax and style conventions
--- Added test 'lint_cmake' to check CMake code style
--- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
--- Added test 'uncrustify' to check C / C++ code style
--- Configured uncrustify additional arguments: 
--- Added test 'xmllint' to check XML markup files
--- Configuring done
-[3.1s] [0/1 complete] [ros2_mpu6500:cmake - 2.4s]                                                 -- Generating done
--- Build files have been written to: /home/jetson/ros2_ws/build/ros2_mpu6500
-[3.2s] [0/1 complete] [ros2_mpu6500:build - 2.5s]                                                 [ 33%] [32mBuilding CXX object CMakeFiles/ros2_mpu6500.dir/src/mpu6500_hal.cpp.o[0m
-[ 33%] [32mBuilding C object CMakeFiles/ros2_mpu6500.dir/src/mpu6500_interface.c.o[0m
-[ 50%] [32mBuilding CXX object CMakeFiles/ros2_mpu6500.dir/src/mpu6500_node.cpp.o[0m
-[ 66%] [32mBuilding CXX object CMakeFiles/ros2_mpu6500.dir/src/mpu6500.cpp.o[0m
-[3.3s] [0/1 complete] [ros2_mpu6500:build 66% - 2.6s]                                                     [ 83%] [32mBuilding C object CMakeFiles/ros2_mpu6500.dir/home/jetson/ros2_ws/src/mpu6500/src/driver_mpu6500.c.o[0m
-[3.4s] [0/1 complete] [ros2_mpu6500:build 83% - 2.7s]                                                     [3.5s] [0/1 complete] [ros2_mpu6500:build 83% - 2.8s]                                                     [3.6s] [0/1 complete] [ros2_mpu6500:build 83% - 2.9s]                                                     [3.7s] [0/1 complete] [ros2_mpu6500:build 83% - 3.0s]                                                     [3.8s] [0/1 complete] [ros2_mpu6500:build 83% - 3.1s]                                                     [3.9s] [0/1 complete] [ros2_mpu6500:build 83% - 3.2s]                                                     [4.0s] [0/1 complete] [ros2_mpu6500:build 83% - 3.3s]                                                     [4.1s] [0/1 complete] [ros2_mpu6500:build 83% - 3.4s]                                                     [4.2s] [0/1 complete] [ros2_mpu6500:build 83% - 3.5s]                                                     [01m[K/home/jetson/ros2_ws/src/ros2_mpu6500/src/mpu6500.cpp:[m[K In member function ‘[01m[KMpu6500Hal::Mpu6500_Error_t Mpu6500::Mpu6500_GetAccelData(Mpu6500::Mpu6500_AccelData_t&)[m[K’:
-[01m[K/home/jetson/ros2_ws/src/ros2_mpu6500/src/mpu6500.cpp:121:19:[m[K [01;31m[Kerror: [m[K‘[01m[Kmpu6500_read_accel[m[K’ was not declared in this scope; did you mean ‘[01m[Kmpu6500_read[m[K’?
-  121 |     uint8_t res = [01;31m[Kmpu6500_read_accel[m[K(&handle_, accel_raw, accel_g);
-      |                   [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
-      |                   [32m[Kmpu6500_read[m[K
-[01m[K/home/jetson/ros2_ws/src/ros2_mpu6500/src/mpu6500.cpp:[m[K In member function ‘[01m[KMpu6500Hal::Mpu6500_Error_t Mpu6500::Mpu6500_GetGyroData(Mpu6500::Mpu6500_GyroData_t&)[m[K’:
-[01m[K/home/jetson/ros2_ws/src/ros2_mpu6500/src/mpu6500.cpp:147:19:[m[K [01;31m[Kerror: [m[K‘[01m[Kmpu6500_read_gyro[m[K’ was not declared in this scope; did you mean ‘[01m[Kmpu6500_read[m[K’?
-  147 |     uint8_t res = [01;31m[Kmpu6500_read_gyro[m[K(&handle_, gyro_raw, gyro_dps);
-      |                   [01;31m[K^~~~~~~~~~~~~~~~~[m[K
-      |                   [32m[Kmpu6500_read[m[K
-[4.3s] [0/1 complete] [ros2_mpu6500:build 83% - 3.6s]                                                     gmake[2]: *** [CMakeFiles/ros2_mpu6500.dir/build.make:90: CMakeFiles/ros2_mpu6500.dir/src/mpu6500.cpp.o] Error 1
-gmake[2]: *** Waiting for unfinished jobs....
-[4.4s] [0/1 complete] [ros2_mpu6500:build 83% - 3.7s]                                                     [4.5s] [0/1 complete] [ros2_mpu6500:build 83% - 3.8s]                                                     [4.6s] [0/1 complete] [ros2_mpu6500:build 83% - 3.9s]                                                     [4.7s] [0/1 complete] [ros2_mpu6500:build 83% - 4.0s]                                                     [4.8s] [0/1 complete] [ros2_mpu6500:build 83% - 4.1s]                                                     [4.9s] [0/1 complete] [ros2_mpu6500:build 83% - 4.2s]                                                     [5.0s] [0/1 complete] [ros2_mpu6500:build 83% - 4.3s]                                                     [5.1s] [0/1 complete] [ros2_mpu6500:build 83% - 4.4s]                                                     [5.2s] [0/1 complete] [ros2_mpu6500:build 83% - 4.5s]                                                     [5.3s] [0/1 complete] [ros2_mpu6500:build 83% - 4.6s]                                                     [5.4s] [0/1 complete] [ros2_mpu6500:build 83% - 4.7s]                                                     [5.5s] [0/1 complete] [ros2_mpu6500:build 83% - 4.8s]                                                     [5.6s] [0/1 complete] [ros2_mpu6500:build 83% - 4.9s]                                                     [5.7s] [0/1 complete] [ros2_mpu6500:build 83% - 5.0s]                                                     [5.8s] [0/1 complete] [ros2_mpu6500:build 83% - 5.1s]                                                     [5.9s] [0/1 complete] [ros2_mpu6500:build 83% - 5.2s]                                                     [6.0s] [0/1 complete] [ros2_mpu6500:build 83% - 5.3s]                                                     [6.1s] [0/1 complete] [ros2_mpu6500:build 83% - 5.4s]                                                     [6.2s] [0/1 complete] [ros2_mpu6500:build 83% - 5.5s]                                                     [6.3s] [0/1 complete] [ros2_mpu6500:build 83% - 5.6s]                                                     [6.4s] [0/1 complete] [ros2_mpu6500:build 83% - 5.7s]                                                     [6.5s] [0/1 complete] [ros2_mpu6500:build 83% - 5.8s]                                                     [6.6s] [0/1 complete] [ros2_mpu6500:build 83% - 5.9s]                                                     [6.7s] [0/1 complete] [ros2_mpu6500:build 83% - 6.0s]                                                     [6.8s] [0/1 complete] [ros2_mpu6500:build 83% - 6.1s]                                                     [6.9s] [0/1 complete] [ros2_mpu6500:build 83% - 6.2s]                                                     [7.0s] [0/1 complete] [ros2_mpu6500:build 83% - 6.3s]                                                     [7.1s] [0/1 complete] [ros2_mpu6500:build 83% - 6.4s]                                                     [7.2s] [0/1 complete] [ros2_mpu6500:build 83% - 6.5s]                                                     [7.3s] [0/1 complete] [ros2_mpu6500:build 83% - 6.6s]                                                     [7.4s] [0/1 complete] [ros2_mpu6500:build 83% - 6.7s]                                                     [7.5s] [0/1 complete] [ros2_mpu6500:build 83% - 6.8s]                                                     [7.6s] [0/1 complete] [ros2_mpu6500:build 83% - 6.9s]                                                     [7.7s] [0/1 complete] [ros2_mpu6500:build 83% - 7.0s]                                                     [7.8s] [0/1 complete] [ros2_mpu6500:build 83% - 7.1s]                                                     [7.9s] [0/1 complete] [ros2_mpu6500:build 83% - 7.2s]                                                     [8.0s] [0/1 complete] [ros2_mpu6500:build 83% - 7.3s]                                                     [8.1s] [0/1 complete] [ros2_mpu6500:build 83% - 7.4s]                                                     [8.2s] [0/1 complete] [ros2_mpu6500:build 83% - 7.5s]                                                     [8.3s] [0/1 complete] [ros2_mpu6500:build 83% - 7.6s]                                                     [8.4s] [0/1 complete] [ros2_mpu6500:build 83% - 7.7s]                                                     [8.5s] [0/1 complete] [ros2_mpu6500:build 83% - 7.8s]                                                     [8.6s] [0/1 complete] [ros2_mpu6500:build 83% - 7.9s]                                                     [8.7s] [0/1 complete] [ros2_mpu6500:build 83% - 8.0s]                                                     [8.8s] [0/1 complete] [ros2_mpu6500:build 83% - 8.1s]                                                     [8.9s] [0/1 complete] [ros2_mpu6500:build 83% - 8.2s]                                                     [9.0s] [0/1 complete] [ros2_mpu6500:build 83% - 8.3s]                                                     [9.1s] [0/1 complete] [ros2_mpu6500:build 83% - 8.4s]                                                     [9.2s] [0/1 complete] [ros2_mpu6500:build 83% - 8.5s]                                                     [9.3s] [0/1 complete] [ros2_mpu6500:build 83% - 8.6s]                                                     [9.4s] [0/1 complete] [ros2_mpu6500:build 83% - 8.7s]                                                     [9.5s] [0/1 complete] [ros2_mpu6500:build 83% - 8.8s]                                                     [9.7s] [0/1 complete] [ros2_mpu6500:build 83% - 8.9s]                                                     [9.8s] [0/1 complete] [ros2_mpu6500:build 83% - 9.0s]                                                     [9.9s] [0/1 complete] [ros2_mpu6500:build 83% - 9.1s]                                                     [10.0s] [0/1 complete] [ros2_mpu6500:build 83% - 9.2s]                                                      [10.1s] [0/1 complete] [ros2_mpu6500:build 83% - 9.4s]                                                      [10.2s] [0/1 complete] [ros2_mpu6500:build 83% - 9.5s]                                                      [10.3s] [0/1 complete] [ros2_mpu6500:build 83% - 9.6s]                                                      [10.4s] [0/1 complete] [ros2_mpu6500:build 83% - 9.7s]                                                      [10.5s] [0/1 complete] [ros2_mpu6500:build 83% - 9.8s]                                                      [10.6s] [0/1 complete] [ros2_mpu6500:build 83% - 9.9s]                                                      [10.7s] [0/1 complete] [ros2_mpu6500:build 83% - 10.0s]                                                       [10.8s] [0/1 complete] [ros2_mpu6500:build 83% - 10.1s]                                                       [10.9s] [0/1 complete] [ros2_mpu6500:build 83% - 10.2s]                                                       [11.0s] [0/1 complete] [ros2_mpu6500:build 83% - 10.3s]                                                       [11.1s] [0/1 complete] [ros2_mpu6500:build 83% - 10.4s]                                                       [11.2s] [0/1 complete] [ros2_mpu6500:build 83% - 10.5s]                                                       [11.3s] [0/1 complete] [ros2_mpu6500:build 83% - 10.6s]                                                       [11.4s] [0/1 complete] [ros2_mpu6500:build 83% - 10.7s]                                                       [11.5s] [0/1 complete] [ros2_mpu6500:build 83% - 10.8s]                                                       [11.6s] [0/1 complete] [ros2_mpu6500:build 83% - 10.9s]                                                       [11.7s] [0/1 complete] [ros2_mpu6500:build 83% - 11.0s]                                                       [11.8s] [0/1 complete] [ros2_mpu6500:build 83% - 11.1s]                                                       [11.9s] [0/1 complete] [ros2_mpu6500:build 83% - 11.2s]                                                       [12.0s] [0/1 complete] [ros2_mpu6500:build 83% - 11.3s]                                                       [12.1s] [0/1 complete] [ros2_mpu6500:build 83% - 11.4s]                                                       [12.2s] [0/1 complete] [ros2_mpu6500:build 83% - 11.5s]                                                       [12.3s] [0/1 complete] [ros2_mpu6500:build 83% - 11.6s]                                                       [12.4s] [0/1 complete] [ros2_mpu6500:build 83% - 11.7s]                                                       [12.5s] [0/1 complete] [ros2_mpu6500:build 83% - 11.8s]                                                       [12.6s] [0/1 complete] [ros2_mpu6500:build 83% - 11.9s]                                                       [12.7s] [0/1 complete] [ros2_mpu6500:build 83% - 12.0s]                                                       [12.8s] [0/1 complete] [ros2_mpu6500:build 83% - 12.1s]                                                       [12.9s] [0/1 complete] [ros2_mpu6500:build 83% - 12.2s]                                                       [13.0s] [0/1 complete] [ros2_mpu6500:build 83% - 12.3s]                                                       [13.1s] [0/1 complete] [ros2_mpu6500:build 83% - 12.4s]                                                       [13.2s] [0/1 complete] [ros2_mpu6500:build 83% - 12.5s]                                                       gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/ros2_mpu6500.dir/all] Error 2
-[13.3s] [0/1 complete] [ros2_mpu6500:build 83% - 12.6s]                                                       gmake: *** [Makefile:146: all] Error 2
---- stderr: ros2_mpu6500
-[01m[K/home/jetson/ros2_ws/src/ros2_mpu6500/src/mpu6500.cpp:[m[K In member function ‘[01m[KMpu6500Hal::Mpu6500_Error_t Mpu6500::Mpu6500_GetAccelData(Mpu6500::Mpu6500_AccelData_t&)[m[K’:
-[01m[K/home/jetson/ros2_ws/src/ros2_mpu6500/src/mpu6500.cpp:121:19:[m[K [01;31m[Kerror: [m[K‘[01m[Kmpu6500_read_accel[m[K’ was not declared in this scope; did you mean ‘[01m[Kmpu6500_read[m[K’?
-  121 |     uint8_t res = [01;31m[Kmpu6500_read_accel[m[K(&handle_, accel_raw, accel_g);
-      |                   [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
-      |                   [32m[Kmpu6500_read[m[K
-[01m[K/home/jetson/ros2_ws/src/ros2_mpu6500/src/mpu6500.cpp:[m[K In member function ‘[01m[KMpu6500Hal::Mpu6500_Error_t Mpu6500::Mpu6500_GetGyroData(Mpu6500::Mpu6500_GyroData_t&)[m[K’:
-[01m[K/home/jetson/ros2_ws/src/ros2_mpu6500/src/mpu6500.cpp:147:19:[m[K [01;31m[Kerror: [m[K‘[01m[Kmpu6500_read_gyro[m[K’ was not declared in this scope; did you mean ‘[01m[Kmpu6500_read[m[K’?
-  147 |     uint8_t res = [01;31m[Kmpu6500_read_gyro[m[K(&handle_, gyro_raw, gyro_dps);
-      |                   [01;31m[K^~~~~~~~~~~~~~~~~[m[K
-      |                   [32m[Kmpu6500_read[m[K
-gmake[2]: *** [CMakeFiles/ros2_mpu6500.dir/build.make:90: CMakeFiles/ros2_mpu6500.dir/src/mpu6500.cpp.o] Error 1
-gmake[2]: *** Waiting for unfinished jobs....
-gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/ros2_mpu6500.dir/all] Error 2
-gmake: *** [Makefile:146: all] Error 2
----
-Failed   <<< ros2_mpu6500 [12.6s, exited with code 2]
-]0;colcon build [1/1 done] [0 ongoing]
-Summary: 0 packages finished [13.3s]
-  1 package failed: ros2_mpu6500
-  1 package had stderr output: ros2_mpu6500
-not found: "/home/jetson/ros2_ws/install/ros2_mpu6500/share/ros2_mpu6500/local_setup.bash"
-[sudo] password for jetson: 
-Package 'ros2_mpu6500' not found: "package 'ros2_mpu6500' not found, searching: ['/home/jetson/ros2_ws/install/ros2_mpu6500', '/opt/ros/humble']"
-[?2004h]0;jetson@ubuntu: ~/ros2_ws[01;32mjetson@ubuntu[00m:[01;34m~/ros2_ws[00m$ exit
-[?2004lexit
-
-Script done on 2025-12-28 18:01:10+05:00 [COMMAND_EXIT_CODE="1"]
+[INFO] [launch]: All log files can be found below /home/jetson/.ros/log/2026-01-16-22-29-20-785714-ubuntu-41003
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [launch.user]: 🚀 Launching as Normal ROS Node
+[INFO] [realsense2_camera_node-1]: process started with pid [41009]
+[INFO] [ros2_mpu6500-2]: process started with pid [41011]
+[INFO] [rgbd_relay-5]: process started with pid [41026]
+[INFO] [rgbd_odometry-6]: process started with pid [41039]
+[INFO] [rtabmap-7]: process started with pid [41042]
+[INFO] [rtabmap_viz-8]: process started with pid [41054]
+[INFO] [static_transform_publisher-3]: process started with pid [41013]
+[INFO] [imu_filter_madgwick_node-4]: process started with pid [41015]
+[static_transform_publisher-3] [WARN] [1768584561.097651274] []: Old-style arguments are deprecated; see --help for new-style arguments
+[imu_filter_madgwick_node-4] [INFO] [1768584561.194091777] [imu_filter_madgwick]: Starting ImuFilter
+[imu_filter_madgwick_node-4] [INFO] [1768584561.195075553] [imu_filter_madgwick]: Using dt computed from message headers
+[imu_filter_madgwick_node-4] [INFO] [1768584561.195130179] [imu_filter_madgwick]: The gravity vector is kept in the IMU message.
+[imu_filter_madgwick_node-4] [INFO] [1768584561.195241895] [imu_filter_madgwick]: Imu filter gain set to 0.100000
+[imu_filter_madgwick_node-4] [INFO] [1768584561.196231367] [imu_filter_madgwick]: Gyro drift bias set to 0.000000
+[imu_filter_madgwick_node-4] [INFO] [1768584561.196265033] [imu_filter_madgwick]: Magnetometer bias values: 0.000000 0.000000 0.000000
+[imu_filter_madgwick_node-4] [INFO] [1768584561.606870107] [imu_filter_madgwick]: First IMU message received.
+[ros2_mpu6500-2] Initializing MPU6500 at address 0xd0
+[ros2_mpu6500-2] mpu6500: i2c init success on /dev/i2c-7 at 0x68.
+[ros2_mpu6500-2] MPU6500 initialized successfully!
+[ros2_mpu6500-2]   - Gyroscope range: ±250°/s
+[ros2_mpu6500-2]   - Accelerometer range: ±2g
+[ros2_mpu6500-2]   - Low-pass filter: 92Hz
+[ros2_mpu6500-2]   - Sample rate: 100Hz
+[ros2_mpu6500-2] [0m[INFO] [1768584561.682597668] [mpu6500_sensor]: IMU Calibration Offsets:[0m
+[ros2_mpu6500-2] [0m[INFO] [1768584561.682818475] [mpu6500_sensor]:   Gyro: [-0.1326, 0.0418, 0.0157] rad/s[0m
+[ros2_mpu6500-2] [0m[INFO] [1768584561.682864109] [mpu6500_sensor]:   Accel: [0.1006, 0.0599, 0.0206] m/s²[0m
+[static_transform_publisher-3] [INFO] [1768584561.730654874] [static_transform_publisher_vcmXm0UC2K2CyvRZ]: Spinning until stopped - publishing transform
+[static_transform_publisher-3] translation: ('0.000000', '0.000000', '0.000000')
+[static_transform_publisher-3] rotation: ('0.000000', '0.000000', '0.000000', '1.000000')
+[static_transform_publisher-3] from 'camera_link' to 'imu_link'
+[realsense2_camera_node-1] [0m[INFO] [1768584562.279556459] [camera.camera]: RealSense ROS v4.56.4[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584562.280040187] [camera.camera]: Built with LibRealSense v2.56.4[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584562.280086268] [camera.camera]: Running with LibRealSense v2.56.4[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584562.381922405] [camera.camera]: Device with serial number 827112070811 was found.
+[realsense2_camera_node-1] [0m
+[realsense2_camera_node-1] [0m[INFO] [1768584562.382283569] [camera.camera]: Device with physical ID /sys/devices/platform/bus@0/3610000.usb/usb1/1-2/1-2.3/1-2.3:1.0/video4linux/video0 was found.[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584562.382338035] [camera.camera]: Device with name Intel RealSense D435 was found.[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584562.382750913] [camera.camera]: Device with port number 1-2.3 was found.[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584562.382807010] [camera.camera]: Device USB type: 2.1[0m
+[realsense2_camera_node-1] [33m[WARN] [1768584562.382841636] [camera.camera]: Device 827112070811 is connected using a 2.1 port. Reduced performance is expected.[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584562.382998025] [camera.camera]: getParameters...[0m
+[realsense2_camera_node-1] [33m[WARN] [1768584562.384643583] [camera.camera]: For the 'unite_imu_method' param update to take effect, re-enable either gyro or accel stream.[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584562.384744003] [camera.camera]: JSON file is not provided[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584562.384791428] [camera.camera]: Device Name: Intel RealSense D435[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584562.384831109] [camera.camera]: Device Serial No: 827112070811[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584562.384864903] [camera.camera]: Device physical port: /sys/devices/platform/bus@0/3610000.usb/usb1/1-2/1-2.3/1-2.3:1.0/video4linux/video0[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584562.384894408] [camera.camera]: Device FW version: 5.16.0.1[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584562.384921352] [camera.camera]: Device Product ID: 0x0B07[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584562.384945065] [camera.camera]: Sync Mode: On[0m
+[realsense2_camera_node-1] [33m[WARN] [1768584562.648885541] [camera.camera]: re-enable the stream for the change to take effect.[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584562.653702660] [camera.camera]: Set ROS param depth_module.infra_profile to default: 640x480x15[0m
+[realsense2_camera_node-1] [33m[WARN] [1768584562.695059581] [camera.camera]: Could not set param: rgb_camera.power_line_frequency with 3 Range: [0, 2]: parameter 'rgb_camera.power_line_frequency' could not be set: Parameter {rgb_camera.power_line_frequency} doesn't comply with integer range.[0m
+[realsense2_camera_node-1] [33m[WARN] [1768584562.721784369] [camera.camera]: re-enable the stream for the change to take effect.[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584562.978190483] [camera.camera]: Stopping Sensor: Depth Module[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584562.981876685] [camera.camera]: Stopping Sensor: RGB Camera[0m
+[rtabmap-7] [0m[INFO] [1768584563.128578626] [rtabmap.rtabmap]: rtabmap(maps): latch                      = true[0m
+[rtabmap-7] [0m[INFO] [1768584563.130367933] [rtabmap.rtabmap]: rtabmap(maps): map_filter_radius          = 0.000000[0m
+[rtabmap-7] [0m[INFO] [1768584563.130475904] [rtabmap.rtabmap]: rtabmap(maps): map_filter_angle           = 30.000000[0m
+[rtabmap-7] [0m[INFO] [1768584563.130650662] [rtabmap.rtabmap]: rtabmap(maps): map_cleanup                = true[0m
+[rtabmap-7] [0m[INFO] [1768584563.130695112] [rtabmap.rtabmap]: rtabmap(maps): map_always_update          = false[0m
+[rtabmap-7] [0m[INFO] [1768584563.130735305] [rtabmap.rtabmap]: rtabmap(maps): map_empty_ray_tracing      = true[0m
+[rtabmap-7] [0m[INFO] [1768584563.130772138] [rtabmap.rtabmap]: rtabmap(maps): cloud_output_voxelized     = true[0m
+[rtabmap-7] [0m[INFO] [1768584563.130808651] [rtabmap.rtabmap]: rtabmap(maps): cloud_subtract_filtering   = false[0m
+[rtabmap-7] [0m[INFO] [1768584563.130844493] [rtabmap.rtabmap]: rtabmap(maps): cloud_subtract_filtering_min_neighbors = 2[0m
+[rtabmap-7] [0m[INFO] [1768584563.131360606] [rtabmap.rtabmap]: rtabmap(maps): octomap_tree_depth         = 16[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584563.333357623] [camera.camera]: Starting Sensor: Depth Module[0m
+[realsense2_camera_node-1]  16/01 22:29:23,337 ERROR [281472468314336] (librealsense-exception.h:52) xioctl(VIDIOC_S_FMT) failed, errno=16 Last Error: Device or resource busy
+[realsense2_camera_node-1]  16/01 22:29:23,338 ERROR [281472468314336] (rs.cpp:256) [rs2_open_multiple( sensor:0xaaaad604a2e0, profiles:0xffff5c02d810, count:1 ) Backend] xioctl(VIDIOC_S_FMT) failed, errno=16 Last Error: Device or resource busy
+[realsense2_camera_node-1] [31m[ERROR] [1768584563.338176951] [camera.camera]: /home/jetson/ros2_ws/src/realsense-ros/realsense2_camera/src/rs_node_setup.cpp:511:An exception has been thrown: xioctl(VIDIOC_S_FMT) failed, errno=16 Last Error: Device or resource busy[0m
+[realsense2_camera_node-1] [31m[ERROR] [1768584563.338299131] [camera.camera]: /home/jetson/ros2_ws/src/realsense-ros/realsense2_camera/src/rs_node_setup.cpp:393:An exception has been thrown: xioctl(VIDIOC_S_FMT) failed, errno=16 Last Error: Device or resource busy[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584563.338491297] [camera.camera]: Stopping Sensor: Depth Module[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584563.338646598] [camera.camera]: Stopping Sensor: RGB Camera[0m
+[realsense2_camera_node-1] Failed to start device: xioctl(VIDIOC_S_FMT) failed, errno=16 Last Error: Device or resource busy
+[realsense2_camera_node-1] [0m[INFO] [1768584563.359074602] [camera.camera]: Starting Sensor: Depth Module[0m
+[realsense2_camera_node-1] [31m[ERROR] [1768584563.361864422] [camera.camera]: /home/jetson/ros2_ws/src/realsense-ros/realsense2_camera/src/rs_node_setup.cpp:511:An exception has been thrown: xioctl(VIDIOC_S_FMT) failed, errno=16 Last Error: Device or resource busy[0m
+[realsense2_camera_node-1] [31m[ERROR] [1768584563.362031308] [camera.camera]: /home/jetson/ros2_ws/src/realsense-ros/realsense2_camera/src/rs_node_setup.cpp:393:An exception has been thrown: xioctl(VIDIOC_S_FMT) failed, errno=16 Last Error: Device or resource busy[0m
+[realsense2_camera_node-1] [31m[ERROR] [1768584563.362108942] [camera.camera]: Error updating the sensors: xioctl(VIDIOC_S_FMT) failed, errno=16 Last Error: Device or resource busy[0m
+[realsense2_camera_node-1]  16/01 22:29:23,361 ERROR [281472334096608] (librealsense-exception.h:52) xioctl(VIDIOC_S_FMT) failed, errno=16 Last Error: Device or resource busy
+[realsense2_camera_node-1]  16/01 22:29:23,361 ERROR [281472334096608] (rs.cpp:256) [rs2_open_multiple( sensor:0xaaaad604a2e0, profiles:0xffff5c02d810, count:1 ) Backend] xioctl(VIDIOC_S_FMT) failed, errno=16 Last Error: Device or resource busy
+[realsense2_camera_node-1] [0m[INFO] [1768584563.553696239] [camera.camera]: Device with serial number 827112070811 was found.
+[realsense2_camera_node-1] [0m
+[realsense2_camera_node-1] [0m[INFO] [1768584563.554163231] [camera.camera]: Device with physical ID /sys/devices/platform/bus@0/3610000.usb/usb1/1-2/1-2.3/1-2.3:1.0/video4linux/video0 was found.[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584563.554221825] [camera.camera]: Device with name Intel RealSense D435 was found.[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584563.563786301] [camera.camera]: Device with port number 1-2.3 was found.[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584563.565144362] [camera.camera]: Device USB type: 2.1[0m
+[realsense2_camera_node-1] [33m[WARN] [1768584563.565187947] [camera.camera]: Device 827112070811 is connected using a 2.1 port. Reduced performance is expected.[0m
+[rtabmap-7] [0m[INFO] [1768584563.639134905] [rtabmap.rtabmap]: rtabmap: frame_id      = camera_link[0m
+[rtabmap-7] [0m[INFO] [1768584563.639257117] [rtabmap.rtabmap]: rtabmap: map_frame_id  = map[0m
+[rtabmap-7] [0m[INFO] [1768584563.639290399] [rtabmap.rtabmap]: rtabmap: log_to_rosout_level  = 4[0m
+[rtabmap-7] [0m[INFO] [1768584563.639316255] [rtabmap.rtabmap]: rtabmap: initial_pose  = [0m
+[rtabmap-7] [0m[INFO] [1768584563.639340480] [rtabmap.rtabmap]: rtabmap: use_action_for_goal  = false[0m
+[rtabmap-7] [0m[INFO] [1768584563.639367553] [rtabmap.rtabmap]: rtabmap: tf_delay      = 0.050000[0m
+[rtabmap-7] [0m[INFO] [1768584563.639406210] [rtabmap.rtabmap]: rtabmap: tf_tolerance  = 0.100000[0m
+[rtabmap-7] [0m[INFO] [1768584563.639435299] [rtabmap.rtabmap]: rtabmap: odom_sensor_sync   = false[0m
+[rtabmap-7] [0m[INFO] [1768584563.639460132] [rtabmap.rtabmap]: rtabmap: pub_loc_pose_only_when_localizing = false[0m
+[rtabmap-7] [0m[INFO] [1768584563.639485797] [rtabmap.rtabmap]: rtabmap: wait_for_transform = 0.200000[0m
+[rtabmap-7] [0m[INFO] [1768584563.639513990] [rtabmap.rtabmap]: rtabmap: gen_scan  = false[0m
+[rtabmap-7] [0m[INFO] [1768584563.639540007] [rtabmap.rtabmap]: rtabmap: gen_depth  = false[0m
+[rtabmap-7] [0m[INFO] [1768584563.818630539] [rtabmap.rtabmap]: Setting RTAB-Map parameter "Mem/IncrementalMemory"="true" (rosparam)[0m
+[rtabmap-7] [0m[INFO] [1768584563.818851122] [rtabmap.rtabmap]: Setting RTAB-Map parameter "Mem/InitWMWithAllNodes"="false" (rosparam)[0m
+[rtabmap-7] [0m[INFO] [1768584563.849561002] [rtabmap.rtabmap]: RTAB-Map detection rate = 1.000000 Hz[0m
+[rtabmap-7] [0m[INFO] [1768584563.849799442] [rtabmap.rtabmap]: rtabmap: Using database from "/home/jetson/.ros/rtabmap.db" (0 MB).[0m
+[rtabmap-7] [0m[INFO] [1768584563.886556625] [rtabmap.rtabmap]: rtabmap: Database version = "0.22.1".[0m
+[rtabmap-7] [0m[INFO] [1768584563.886692246] [rtabmap.rtabmap]: rtabmap: SLAM mode (Mem/IncrementalMemory=true)[0m
+[rtabmap-7] [0m[INFO] [1768584563.965477988] [rtabmap.rtabmap]: Setup callbacks[0m
+[rtabmap-7] [33m[WARN] [1768584563.965632969] [rtabmap.rtabmap]: rtabmap: Parameters subscribe_depth and subscribe_rgbd cannot be true at the same time. Parameter subscribe_depth is set to false.[0m
+[rtabmap-7] [0m[INFO] [1768584563.965820079] [rtabmap.rtabmap]: rtabmap: subscribe_depth = false[0m
+[rtabmap-7] [0m[INFO] [1768584563.965871025] [rtabmap.rtabmap]: rtabmap: subscribe_rgb = false[0m
+[rtabmap-7] [0m[INFO] [1768584563.965909458] [rtabmap.rtabmap]: rtabmap: subscribe_stereo = false[0m
+[rtabmap-7] [0m[INFO] [1768584563.965943475] [rtabmap.rtabmap]: rtabmap: subscribe_rgbd = true (rgbd_cameras=1)[0m
+[rtabmap-7] [0m[INFO] [1768584563.974088673] [rtabmap.rtabmap]: rtabmap: subscribe_sensor_data = false[0m
+[rtabmap-7] [0m[INFO] [1768584563.974139746] [rtabmap.rtabmap]: rtabmap: subscribe_odom_info = true[0m
+[rtabmap-7] [0m[INFO] [1768584563.974172323] [rtabmap.rtabmap]: rtabmap: subscribe_user_data = false[0m
+[rtabmap-7] [0m[INFO] [1768584563.974204805] [rtabmap.rtabmap]: rtabmap: subscribe_scan = false[0m
+[rtabmap-7] [0m[INFO] [1768584563.974235014] [rtabmap.rtabmap]: rtabmap: subscribe_scan_cloud = false[0m
+[rtabmap-7] [0m[INFO] [1768584563.974265511] [rtabmap.rtabmap]: rtabmap: subscribe_scan_descriptor = false[0m
+[rtabmap-7] [0m[INFO] [1768584563.974296296] [rtabmap.rtabmap]: rtabmap: topic_queue_size = 10[0m
+[rtabmap-7] [0m[INFO] [1768584563.974326505] [rtabmap.rtabmap]: rtabmap: sync_queue_size  = 10[0m
+[rtabmap-7] [0m[INFO] [1768584563.974356458] [rtabmap.rtabmap]: rtabmap: qos_image       = 0[0m
+[rtabmap-7] [0m[INFO] [1768584563.974386091] [rtabmap.rtabmap]: rtabmap: qos_camera_info = 0[0m
+[rtabmap-7] [0m[INFO] [1768584563.974415755] [rtabmap.rtabmap]: rtabmap: qos_scan        = 0[0m
+[rtabmap-7] [0m[INFO] [1768584563.974548048] [rtabmap.rtabmap]: rtabmap: qos_odom        = 0[0m
+[rtabmap-7] [0m[INFO] [1768584563.974585841] [rtabmap.rtabmap]: rtabmap: qos_user_data   = 0[0m
+[rtabmap-7] [0m[INFO] [1768584563.974618578] [rtabmap.rtabmap]: rtabmap: approx_sync     = true[0m
+[rtabmap-7] [0m[INFO] [1768584563.974685396] [rtabmap.rtabmap]: Setup rgbd callback[0m
+[rtabmap-7] [0m[INFO] [1768584563.980410002] [rtabmap.rtabmap]: 
+[rtabmap-7] rtabmap subscribed to (approx sync):
+[rtabmap-7]    /rtabmap/odom \
+[rtabmap-7]    /rtabmap/rgbd_image_relay \
+[rtabmap-7]    /rtabmap/odom_info[0m
+[realsense2_camera_node-1] [31m[ERROR] [1768584564.297819891] [camera.camera]: The device has been disconnected![0m
+[realsense2_camera_node-1]  16/01 22:29:24,333 ERROR [281472359459040] (librealsense-exception.h:52) map_device_descriptor Cannot open '/dev/video0 Last Error: No such file or directory
+[realsense2_camera_node-1]  16/01 22:29:24,333 ERROR [281472359459040] (uvc-sensor.cpp:428) acquire_power failed: map_device_descriptor Cannot open '/dev/video0 Last Error: No such file or directory
+[realsense2_camera_node-1]  16/01 22:29:24,334 ERROR [281472359459040] (error-handling.cpp:99) Error during polling error handler: map_device_descriptor Cannot open '/dev/video0 Last Error: No such file or directory
+[realsense2_camera_node-1]  16/01 22:29:24,335 ERROR [281472468314336] (rs.cpp:256) [rs2_get_device_info( dev:nullptr, info:Name ) UNKNOWN] null pointer passed for argument "dev"
+[realsense2_camera_node-1] [31m[ERROR] [1768584564.336047267] [camera.camera]: Error starting device: null pointer passed for argument "dev"[0m
+[realsense2_camera_node-1] [33m[WARN] [1768584564.358838645] [camera.camera]: No RealSense devices were found![0m
+[rtabmap_viz-8] [0m[INFO] [1768584564.793021100] [rtabmap.rtabmap_viz]: rtabmap_viz: Using configuration from "/home/jetson/.ros/rtabmapGUI.ini"[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584565.354327854] [camera.camera]: Checking new devices...[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584565.501000384] [camera.camera]: Device with serial number 827112070811 was found.
+[realsense2_camera_node-1] [0m
+[realsense2_camera_node-1] [0m[INFO] [1768584565.501504304] [camera.camera]: Device with physical ID /sys/devices/platform/bus@0/3610000.usb/usb1/1-2/1-2.3/1-2.3:1.0/video4linux/video0 was found.[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584565.501566034] [camera.camera]: Device with name Intel RealSense D435 was found.[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584565.504380880] [camera.camera]: Device with port number 1-2.3 was found.[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584565.504524532] [camera.camera]: Device USB type: 2.1[0m
+[realsense2_camera_node-1] [33m[WARN] [1768584565.504601591] [camera.camera]: Device 827112070811 is connected using a 2.1 port. Reduced performance is expected.[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584565.505009860] [camera.camera]: getParameters...[0m
+[realsense2_camera_node-1] [33m[WARN] [1768584565.600121677] [camera.camera]: For the 'unite_imu_method' param update to take effect, re-enable either gyro or accel stream.[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584565.600253778] [camera.camera]: JSON file is not provided[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584565.600296435] [camera.camera]: Device Name: Intel RealSense D435[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584565.600322324] [camera.camera]: Device Serial No: 827112070811[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584565.600342613] [camera.camera]: Device physical port: /sys/devices/platform/bus@0/3610000.usb/usb1/1-2/1-2.3/1-2.3:1.0/video4linux/video0[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584565.600362581] [camera.camera]: Device FW version: 5.16.0.1[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584565.600378998] [camera.camera]: Device Product ID: 0x0B07[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584565.600393526] [camera.camera]: Sync Mode: On[0m
+[realsense2_camera_node-1] [33m[WARN] [1768584566.272417634] [camera.camera]: re-enable the stream for the change to take effect.[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584566.316420049] [camera.camera]: Set ROS param depth_module.infra_profile to default: 640x480x15[0m
+[realsense2_camera_node-1] [33m[WARN] [1768584566.452786829] [camera.camera]: Could not set param: rgb_camera.power_line_frequency with 3 Range: [0, 2]: parameter 'rgb_camera.power_line_frequency' could not be set: Parameter {rgb_camera.power_line_frequency} doesn't comply with integer range.[0m
+[realsense2_camera_node-1] [33m[WARN] [1768584566.468120936] [camera.camera]: re-enable the stream for the change to take effect.[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584566.626387737] [camera.camera]: Stopping Sensor: Depth Module[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584566.626624993] [camera.camera]: Stopping Sensor: RGB Camera[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584566.688395003] [camera.camera]: Starting Sensor: Depth Module[0m
+[realsense2_camera_node-1]  16/01 22:29:26,693 ERROR [281472485222624] (librealsense-exception.h:52) xioctl(VIDIOC_S_FMT) failed, errno=16 Last Error: Device or resource busy
+[realsense2_camera_node-1]  16/01 22:29:26,695 ERROR [281472485222624] (rs.cpp:256) [rs2_open_multiple( sensor:0xaaaad60489b0, profiles:0xffff4402fc70, count:1 ) Backend] xioctl(VIDIOC_S_FMT) failed, errno=16 Last Error: Device or resource busy
+[realsense2_camera_node-1] [31m[ERROR] [1768584566.695530183] [camera.camera]: /home/jetson/ros2_ws/src/realsense-ros/realsense2_camera/src/rs_node_setup.cpp:511:An exception has been thrown: xioctl(VIDIOC_S_FMT) failed, errno=16 Last Error: Device or resource busy[0m
+[realsense2_camera_node-1] [31m[ERROR] [1768584566.695900435] [camera.camera]: /home/jetson/ros2_ws/src/realsense-ros/realsense2_camera/src/rs_node_setup.cpp:393:An exception has been thrown: xioctl(VIDIOC_S_FMT) failed, errno=16 Last Error: Device or resource busy[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584566.696144507] [camera.camera]: Stopping Sensor: Depth Module[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584566.699873078] [camera.camera]: Stopping Sensor: RGB Camera[0m
+[realsense2_camera_node-1] Failed to start device: xioctl(VIDIOC_S_FMT) failed, errno=16 Last Error: Device or resource busy
+[realsense2_camera_node-1] [0m[INFO] [1768584566.726440997] [camera.camera]: Starting Sensor: Depth Module[0m
+[realsense2_camera_node-1]  16/01 22:29:26,733 ERROR [281472324266208] (librealsense-exception.h:52) xioctl(VIDIOC_S_FMT) failed, errno=16 Last Error: Device or resource busy
+[realsense2_camera_node-1]  16/01 22:29:26,734 ERROR [281472324266208] (rs.cpp:256) [rs2_open_multiple( sensor:0xaaaad60489b0, profiles:0xffff4402fc70, count:1 ) Backend] xioctl(VIDIOC_S_FMT) failed, errno=16 Last Error: Device or resource busy
+[realsense2_camera_node-1] [31m[ERROR] [1768584566.734289928] [camera.camera]: /home/jetson/ros2_ws/src/realsense-ros/realsense2_camera/src/rs_node_setup.cpp:511:An exception has been thrown: xioctl(VIDIOC_S_FMT) failed, errno=16 Last Error: Device or resource busy[0m
+[realsense2_camera_node-1] [31m[ERROR] [1768584566.734429069] [camera.camera]: /home/jetson/ros2_ws/src/realsense-ros/realsense2_camera/src/rs_node_setup.cpp:393:An exception has been thrown: xioctl(VIDIOC_S_FMT) failed, errno=16 Last Error: Device or resource busy[0m
+[realsense2_camera_node-1] [31m[ERROR] [1768584566.734571538] [camera.camera]: Error updating the sensors: xioctl(VIDIOC_S_FMT) failed, errno=16 Last Error: Device or resource busy[0m
+[rgbd_odometry-6] [0m[INFO] [1768584567.041420338] [rtabmap.rgbd_odometry]: Odometry: frame_id               = camera_link[0m
+[rgbd_odometry-6] [0m[INFO] [1768584567.043286672] [rtabmap.rgbd_odometry]: Odometry: odom_frame_id          = odom[0m
+[rgbd_odometry-6] [0m[INFO] [1768584567.043356402] [rtabmap.rgbd_odometry]: Odometry: publish_tf             = true[0m
+[rgbd_odometry-6] [0m[INFO] [1768584567.043381843] [rtabmap.rgbd_odometry]: Odometry: wait_for_transform     = 0.200000[0m
+[rgbd_odometry-6] [0m[INFO] [1768584567.043412884] [rtabmap.rgbd_odometry]: Odometry: log_to_rosout_level    = 4[0m
+[rgbd_odometry-6] [0m[INFO] [1768584567.043509207] [rtabmap.rgbd_odometry]: Odometry: initial_pose           = xyz=0.000000,0.000000,0.000000 rpy=0.000000,-0.000000,0.000000[0m
+[rgbd_odometry-6] [0m[INFO] [1768584567.043550041] [rtabmap.rgbd_odometry]: Odometry: ground_truth_frame_id  = [0m
+[rgbd_odometry-6] [0m[INFO] [1768584567.043576857] [rtabmap.rgbd_odometry]: Odometry: ground_truth_base_frame_id = [0m
+[rgbd_odometry-6] [0m[INFO] [1768584567.043596986] [rtabmap.rgbd_odometry]: Odometry: config_path            = [0m
+[rgbd_odometry-6] [0m[INFO] [1768584567.043612763] [rtabmap.rgbd_odometry]: Odometry: publish_null_when_lost = true[0m
+[rgbd_odometry-6] [0m[INFO] [1768584567.043626299] [rtabmap.rgbd_odometry]: Odometry: publish_compressed_sensor_data = false[0m
+[rgbd_odometry-6] [0m[INFO] [1768584567.043640636] [rtabmap.rgbd_odometry]: Odometry: guess_frame_id         = [0m
+[rgbd_odometry-6] [0m[INFO] [1768584567.043654588] [rtabmap.rgbd_odometry]: Odometry: guess_min_translation  = 0.000000[0m
+[rgbd_odometry-6] [0m[INFO] [1768584567.043669820] [rtabmap.rgbd_odometry]: Odometry: guess_min_rotation     = 0.000000[0m
+[rgbd_odometry-6] [0m[INFO] [1768584567.043683869] [rtabmap.rgbd_odometry]: Odometry: guess_min_time         = 0.000000[0m
+[rgbd_odometry-6] [0m[INFO] [1768584567.043698365] [rtabmap.rgbd_odometry]: Odometry: expected_update_rate   = 0.000000 Hz[0m
+[rgbd_odometry-6] [0m[INFO] [1768584567.043713118] [rtabmap.rgbd_odometry]: Odometry: max_update_rate        = 0.000000 Hz[0m
+[rgbd_odometry-6] [0m[INFO] [1768584567.043727582] [rtabmap.rgbd_odometry]: Odometry: min_update_rate        = 0.000000 Hz[0m
+[rgbd_odometry-6] [0m[INFO] [1768584567.043749247] [rtabmap.rgbd_odometry]: Odometry: wait_imu_to_init       = false[0m
+[rgbd_odometry-6] [0m[INFO] [1768584567.043765120] [rtabmap.rgbd_odometry]: Odometry: always_check_imu_tf    = true[0m
+[rgbd_odometry-6] [0m[INFO] [1768584567.043779392] [rtabmap.rgbd_odometry]: Odometry: sensor_data_compression_format = .jpg[0m
+[rgbd_odometry-6] [0m[INFO] [1768584567.043792033] [rtabmap.rgbd_odometry]: Odometry: sensor_data_parallel_compression = true[0m
+[rgbd_odometry-6] [0m[INFO] [1768584567.043816545] [rtabmap.rgbd_odometry]: Odometry: stereoParams_=0 visParams_=1 icpParams_=0[0m
+[realsense2_camera_node-1]  16/01 22:29:27,690 ERROR [281472451406048] (librealsense-exception.h:52) map_device_descriptor Cannot open '/dev/video0 Last Error: No such file or directory
+[realsense2_camera_node-1]  16/01 22:29:27,690 ERROR [281472451406048] (uvc-sensor.cpp:428) acquire_power failed: map_device_descriptor Cannot open '/dev/video0 Last Error: No such file or directory
+[realsense2_camera_node-1]  16/01 22:29:27,690 ERROR [281472451406048] (error-handling.cpp:99) Error during polling error handler: map_device_descriptor Cannot open '/dev/video0 Last Error: No such file or directory
+[rgbd_odometry-6] [0m[INFO] [1768584567.799995301] [rtabmap.rgbd_odometry]: RGBDOdometry: approx_sync    = true[0m
+[rgbd_odometry-6] [0m[INFO] [1768584567.801039016] [rtabmap.rgbd_odometry]: RGBDOdometry: approx_sync_max_interval = 0.000000[0m
+[rgbd_odometry-6] [0m[INFO] [1768584567.801100586] [rtabmap.rgbd_odometry]: RGBDOdometry: topic_queue_size = 10[0m
+[rgbd_odometry-6] [0m[INFO] [1768584567.801125323] [rtabmap.rgbd_odometry]: RGBDOdometry: sync_queue_size  = 10[0m
+[rgbd_odometry-6] [0m[INFO] [1768584567.801142187] [rtabmap.rgbd_odometry]: RGBDOdometry: qos             = 0[0m
+[rgbd_odometry-6] [0m[INFO] [1768584567.801155148] [rtabmap.rgbd_odometry]: RGBDOdometry: qos_camera_info = 0[0m
+[rgbd_odometry-6] [0m[INFO] [1768584567.801166540] [rtabmap.rgbd_odometry]: RGBDOdometry: subscribe_rgbd = true[0m
+[rgbd_odometry-6] [0m[INFO] [1768584567.801177740] [rtabmap.rgbd_odometry]: RGBDOdometry: rgbd_cameras   = 1[0m
+[rgbd_odometry-6] [0m[INFO] [1768584567.801188877] [rtabmap.rgbd_odometry]: RGBDOdometry: keep_color     = false[0m
+[rgbd_odometry-6] [0m[INFO] [1768584567.801199693] [rtabmap.rgbd_odometry]: RGBDOdometry: rgb_transport   = raw[0m
+[rgbd_odometry-6] [0m[INFO] [1768584567.801213326] [rtabmap.rgbd_odometry]: RGBDOdometry: depth_transport = raw[0m
+[rgbd_odometry-6] [0m[INFO] [1768584567.820213474] [rtabmap.rgbd_odometry]: 
+[rgbd_odometry-6] rgbd_odometry subscribed to:
+[rgbd_odometry-6]    /rtabmap/rgbd_image_relay[0m
+[rtabmap_viz-8] libpng warning: iCCP: known incorrect sRGB profile
+[rtabmap_viz-8] libpng warning: iCCP: known incorrect sRGB profile
+[rtabmap_viz-8] libpng warning: iCCP: known incorrect sRGB profile
+[rtabmap_viz-8] [33m[WARN] [1768584568.600331162] [rcl.logging_rosout]: Publisher already registered for provided node name. If this is due to multiple nodes with the same name then all logs for that logger name will go out over the existing publisher. As soon as any node with that name is destructed it will unregister the publisher, preventing any further logs for that name from being published on the rosout topic.[0m
+[realsense2_camera_node-1]  16/01 22:29:28,693 ERROR [281472451406048] (librealsense-exception.h:52) map_device_descriptor Cannot open '/dev/video0 Last Error: No such file or directory
+[realsense2_camera_node-1]  16/01 22:29:28,693 ERROR [281472451406048] (uvc-sensor.cpp:428) acquire_power failed: map_device_descriptor Cannot open '/dev/video0 Last Error: No such file or directory
+[realsense2_camera_node-1]  16/01 22:29:28,693 ERROR [281472451406048] (error-handling.cpp:99) Error during polling error handler: map_device_descriptor Cannot open '/dev/video0 Last Error: No such file or directory
+[realsense2_camera_node-1] [0m[INFO] [1768584568.761222944] [camera.camera]: Checking new devices...[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584568.789439428] [camera.camera]: Device with serial number 827112070811 was found.
+[realsense2_camera_node-1] [0m
+[realsense2_camera_node-1] [0m[INFO] [1768584568.789620650] [camera.camera]: Device with physical ID /sys/devices/platform/bus@0/3610000.usb/usb1/1-2/1-2.3/1-2.3:1.0/video4linux/video4 was found.[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584568.789695373] [camera.camera]: Device with name Intel RealSense D435 was found.[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584568.790177628] [camera.camera]: Device with port number 1-2.3 was found.[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584568.790232126] [camera.camera]: Device USB type: 2.1[0m
+[realsense2_camera_node-1] [33m[WARN] [1768584568.790261695] [camera.camera]: Device 827112070811 is connected using a 2.1 port. Reduced performance is expected.[0m
+[rtabmap_viz-8] [0m[INFO] [1768584568.795281413] [rtabmap.rtabmap_viz]: Reading parameters from the ROS server...[0m
+[rtabmap_viz-8] [0m[INFO] [1768584568.978639409] [rtabmap.rtabmap_viz]: Parameters read = 387[0m
+[rtabmap_viz-8] [0m[INFO] [1768584568.978770006] [rtabmap.rtabmap_viz]: Parameters successfully read.[0m
+[rtabmap-7] [33m[WARN] [1768584569.000905937] [rtabmap.rtabmap]: rtabmap: Did not receive data since 5 seconds! Make sure the input topics are published ("$ ros2 topic hz my_topic") and the timestamps in their header are set. If topics are coming from different computers, make sure the clocks of the computers are synchronized ("ntpdate"). Ajusting topic_queue_size (10) and sync_queue_size (10) can also help for better synchronization if framerates and/or delays are different. If topics are not published at the same rate, you could increase "sync_queue_size" and/or "topic_queue_size" parameters (current=10 and 10 respectively).
+[rtabmap-7] rtabmap subscribed to (approx sync):
+[rtabmap-7]    /rtabmap/odom \
+[rtabmap-7]    /rtabmap/rgbd_image_relay \
+[rtabmap-7]    /rtabmap/odom_info[0m
+[realsense2_camera_node-1]  16/01 22:29:29,694 ERROR [281472451406048] (librealsense-exception.h:52) map_device_descriptor Cannot open '/dev/video0 Last Error: No such file or directory
+[realsense2_camera_node-1]  16/01 22:29:29,696 ERROR [281472451406048] (uvc-sensor.cpp:428) acquire_power failed: map_device_descriptor Cannot open '/dev/video0 Last Error: No such file or directory
+[realsense2_camera_node-1]  16/01 22:29:29,696 ERROR [281472451406048] (error-handling.cpp:99) Error during polling error handler: map_device_descriptor Cannot open '/dev/video0 Last Error: No such file or directory
+[realsense2_camera_node-1] [0m[INFO] [1768584569.698683331] [camera.camera]: getParameters...[0m
+[realsense2_camera_node-1] [33m[WARN] [1768584569.699732902] [camera.camera]: For the 'unite_imu_method' param update to take effect, re-enable either gyro or accel stream.[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584569.699811625] [camera.camera]: JSON file is not provided[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584569.699846346] [camera.camera]: Device Name: Intel RealSense D435[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584569.699870763] [camera.camera]: Device Serial No: 827112070811[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584569.699892907] [camera.camera]: Device physical port: /sys/devices/platform/bus@0/3610000.usb/usb1/1-2/1-2.3/1-2.3:1.0/video4linux/video4[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584569.699913964] [camera.camera]: Device FW version: 5.16.0.1[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584569.699931757] [camera.camera]: Device Product ID: 0x0B07[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584569.699946797] [camera.camera]: Sync Mode: On[0m
+[realsense2_camera_node-1] [33m[WARN] [1768584569.953369347] [camera.camera]: re-enable the stream for the change to take effect.[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584569.957005308] [camera.camera]: Set ROS param depth_module.infra_profile to default: 640x480x15[0m
+[realsense2_camera_node-1]  16/01 22:29:29,968 ERROR [281472485222624] (librealsense-exception.h:52) xioctl(VIDIOC_G_CTRL) failed Last Error: Protocol error
+[realsense2_camera_node-1]  16/01 22:29:29,971 ERROR [281472485222624] (rs.cpp:256) [rs2_get_option( options:0xffff44030380, option_id:Exposure ) Backend] xioctl(VIDIOC_G_CTRL) failed Last Error: Protocol error
+[realsense2_camera_node-1] [31m[ERROR] [1768584569.972305941] [camera.camera]: An error has occurred while calling sensor for: rgb_camera.exposure:xioctl(VIDIOC_G_CTRL) failed Last Error: Protocol error[0m
+[realsense2_camera_node-1]  16/01 22:29:29,976 ERROR [281472485222624] (librealsense-exception.h:52) xioctl(VIDIOC_G_CTRL) failed Last Error: Protocol error
+[realsense2_camera_node-1]  16/01 22:29:29,977 ERROR [281472485222624] (rs.cpp:256) [rs2_get_option( options:0xffff44030380, option_id:Hue ) Backend] xioctl(VIDIOC_G_CTRL) failed Last Error: Protocol error
+[realsense2_camera_node-1] [31m[ERROR] [1768584569.979233946] [camera.camera]: An error has occurred while calling sensor for: rgb_camera.hue:xioctl(VIDIOC_G_CTRL) failed Last Error: Protocol error[0m
+[realsense2_camera_node-1]  16/01 22:29:29,982 ERROR [281472485222624] (librealsense-exception.h:52) xioctl(VIDIOC_G_CTRL) failed Last Error: Protocol error
+[realsense2_camera_node-1]  16/01 22:29:29,984 ERROR [281472485222624] (rs.cpp:256) [rs2_get_option( options:0xffff44030380, option_id:White Balance ) Backend] xioctl(VIDIOC_G_CTRL) failed Last Error: Protocol error
+[realsense2_camera_node-1] [31m[ERROR] [1768584569.987109758] [camera.camera]: An error has occurred while calling sensor for: rgb_camera.white_balance:xioctl(VIDIOC_G_CTRL) failed Last Error: Protocol error[0m
+[realsense2_camera_node-1] [33m[WARN] [1768584569.995271020] [camera.camera]: Could not set param: rgb_camera.power_line_frequency with 3 Range: [0, 2]: parameter 'rgb_camera.power_line_frequency' could not be set: Parameter {rgb_camera.power_line_frequency} doesn't comply with integer range.[0m
+[realsense2_camera_node-1] [33m[WARN] [1768584570.003513885] [camera.camera]: re-enable the stream for the change to take effect.[0m
+[rtabmap_viz-8] [33m[WARN] [1768584570.022123363] [rtabmap.rtabmap_viz]: rtabmap: Parameters subscribe_depth and subscribe_rgbd cannot be true at the same time. Parameter subscribe_depth is set to false.[0m
+[rtabmap_viz-8] [0m[INFO] [1768584570.022972351] [rtabmap.rtabmap_viz]: rtabmap_viz: subscribe_depth = false[0m
+[rtabmap_viz-8] [0m[INFO] [1768584570.023039970] [rtabmap.rtabmap_viz]: rtabmap_viz: subscribe_rgb = false[0m
+[rtabmap_viz-8] [0m[INFO] [1768584570.023067427] [rtabmap.rtabmap_viz]: rtabmap_viz: subscribe_stereo = false[0m
+[rtabmap_viz-8] [0m[INFO] [1768584570.023088675] [rtabmap.rtabmap_viz]: rtabmap_viz: subscribe_rgbd = true (rgbd_cameras=1)[0m
+[rtabmap_viz-8] [0m[INFO] [1768584570.023108708] [rtabmap.rtabmap_viz]: rtabmap_viz: subscribe_sensor_data = false[0m
+[rtabmap_viz-8] [0m[INFO] [1768584570.023125508] [rtabmap.rtabmap_viz]: rtabmap_viz: subscribe_odom_info = true[0m
+[rtabmap_viz-8] [0m[INFO] [1768584570.023142149] [rtabmap.rtabmap_viz]: rtabmap_viz: subscribe_user_data = false[0m
+[rtabmap_viz-8] [0m[INFO] [1768584570.023157254] [rtabmap.rtabmap_viz]: rtabmap_viz: subscribe_scan = false[0m
+[rtabmap_viz-8] [0m[INFO] [1768584570.023171718] [rtabmap.rtabmap_viz]: rtabmap_viz: subscribe_scan_cloud = false[0m
+[rtabmap_viz-8] [0m[INFO] [1768584570.023186086] [rtabmap.rtabmap_viz]: rtabmap_viz: subscribe_scan_descriptor = false[0m
+[rtabmap_viz-8] [0m[INFO] [1768584570.023200135] [rtabmap.rtabmap_viz]: rtabmap_viz: topic_queue_size = 10[0m
+[rtabmap_viz-8] [0m[INFO] [1768584570.023214311] [rtabmap.rtabmap_viz]: rtabmap_viz: sync_queue_size  = 10[0m
+[rtabmap_viz-8] [0m[INFO] [1768584570.023228360] [rtabmap.rtabmap_viz]: rtabmap_viz: qos_image       = 0[0m
+[rtabmap_viz-8] [0m[INFO] [1768584570.023242472] [rtabmap.rtabmap_viz]: rtabmap_viz: qos_camera_info = 0[0m
+[rtabmap_viz-8] [0m[INFO] [1768584570.023257257] [rtabmap.rtabmap_viz]: rtabmap_viz: qos_scan        = 0[0m
+[rtabmap_viz-8] [0m[INFO] [1768584570.023271881] [rtabmap.rtabmap_viz]: rtabmap_viz: qos_odom        = 0[0m
+[rtabmap_viz-8] [0m[INFO] [1768584570.023285386] [rtabmap.rtabmap_viz]: rtabmap_viz: qos_user_data   = 0[0m
+[rtabmap_viz-8] [0m[INFO] [1768584570.023299018] [rtabmap.rtabmap_viz]: rtabmap_viz: approx_sync     = true[0m
+[rtabmap_viz-8] [0m[INFO] [1768584570.023343244] [rtabmap.rtabmap_viz]: Setup rgbd callback[0m
+[rtabmap_viz-8] [0m[INFO] [1768584570.044016823] [rtabmap.rtabmap_viz]: 
+[rtabmap_viz-8] rtabmap_viz subscribed to (approx sync):
+[rtabmap_viz-8]    /rtabmap/odom \
+[rtabmap_viz-8]    /rtabmap/rgbd_image_relay \
+[rtabmap_viz-8]    /rtabmap/odom_info[0m
+[rtabmap_viz-8] [0m[INFO] [1768584570.063337045] [rtabmap.rtabmap_viz]: rtabmap_viz started.[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584570.169573771] [camera.camera]: Stopping Sensor: Depth Module[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584570.169814291] [camera.camera]: Stopping Sensor: RGB Camera[0m
+[realsense2_camera_node-1]  16/01 22:29:30,185 ERROR [281472485222624] (librealsense-exception.h:52) map_device_descriptor Cannot open '/dev/video4 Last Error: No such file or directory
+[realsense2_camera_node-1]  16/01 22:29:30,185 ERROR [281472485222624] (uvc-sensor.cpp:428) acquire_power failed: map_device_descriptor Cannot open '/dev/video4 Last Error: No such file or directory
+[realsense2_camera_node-1]  16/01 22:29:30,186 ERROR [281472485222624] (rs.cpp:256) [rs2_get_video_stream_intrinsics( profile:[ D Z16 0 640x480 @ 30 ], intr:(out) ) Backend] map_device_descriptor Cannot open '/dev/video4 Last Error: No such file or directory
+[realsense2_camera_node-1]  16/01 22:29:30,186 ERROR [281472485222624] (librealsense-exception.h:52) map_device_descriptor Cannot open '/dev/video4 Last Error: No such file or directory
+[realsense2_camera_node-1]  16/01 22:29:30,186 ERROR [281472485222624] (uvc-sensor.cpp:428) acquire_power failed: map_device_descriptor Cannot open '/dev/video4 Last Error: No such file or directory
+[realsense2_camera_node-1]  16/01 22:29:30,186 ERROR [281472485222624] (rs.cpp:256) [rs2_open_multiple( sensor:0xaaaad6047e50, profiles:0xffff4402f560, count:1 ) Backend] map_device_descriptor Cannot open '/dev/video4 Last Error: No such file or directory
+[realsense2_camera_node-1]  16/01 22:29:30,187 ERROR [281472485222624] (librealsense-exception.h:52) map_device_descriptor Cannot open '/dev/video4 Last Error: No such file or directory
+[realsense2_camera_node-1]  16/01 22:29:30,187 ERROR [281472485222624] (uvc-sensor.cpp:428) acquire_power failed: map_device_descriptor Cannot open '/dev/video4 Last Error: No such file or directory
+[realsense2_camera_node-1]  16/01 22:29:30,187 ERROR [281472485222624] (rs.cpp:256) [rs2_hardware_reset( device:0xffff440bac10 ) Backend] map_device_descriptor Cannot open '/dev/video4 Last Error: No such file or directory
+[realsense2_camera_node-1]  16/01 22:29:30,187 ERROR [281472485222624] (rs.cpp:1268) Exception thrown from user callback handler: map_device_descriptor Cannot open '/dev/video4 Last Error: No such file or directory
+[realsense2_camera_node-1] [33m[WARN] [1768584570.186338453] [camera.camera]: No intrinsics available for this stream profile. Using zeroed intrinsics as default.[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584570.186560988] [camera.camera]: Starting Sensor: Depth Module[0m
+[realsense2_camera_node-1] [31m[ERROR] [1768584570.186880167] [camera.camera]: /home/jetson/ros2_ws/src/realsense-ros/realsense2_camera/src/rs_node_setup.cpp:511:An exception has been thrown: map_device_descriptor Cannot open '/dev/video4 Last Error: No such file or directory[0m
+[realsense2_camera_node-1] [31m[ERROR] [1768584570.186938633] [camera.camera]: /home/jetson/ros2_ws/src/realsense-ros/realsense2_camera/src/rs_node_setup.cpp:393:An exception has been thrown: map_device_descriptor Cannot open '/dev/video4 Last Error: No such file or directory[0m
+[realsense2_camera_node-1] Failed to start device: map_device_descriptor Cannot open '/dev/video4 Last Error: No such file or directory
+[realsense2_camera_node-1] [0m[INFO] [1768584570.187315989] [camera.camera]: Stopping Sensor: Depth Module[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584570.187469402] [camera.camera]: Stopping Sensor: RGB Camera[0m
+[realsense2_camera_node-1]  16/01 22:29:30,213 ERROR [281472334096608] (librealsense-exception.h:52) map_device_descriptor Cannot open '/dev/video4 Last Error: No such file or directory
+[realsense2_camera_node-1]  16/01 22:29:30,213 ERROR [281472334096608] (uvc-sensor.cpp:428) acquire_power failed: map_device_descriptor Cannot open '/dev/video4 Last Error: No such file or directory
+[realsense2_camera_node-1]  16/01 22:29:30,214 ERROR [281472334096608] (rs.cpp:256) [rs2_get_video_stream_intrinsics( profile:[ D Z16 0 640x480 @ 30 ], intr:(out) ) Backend] map_device_descriptor Cannot open '/dev/video4 Last Error: No such file or directory
+[realsense2_camera_node-1] [33m[WARN] [1768584570.214081866] [camera.camera]: No intrinsics available for this stream profile. Using zeroed intrinsics as default.[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584570.214307601] [camera.camera]: Starting Sensor: Depth Module[0m
+[realsense2_camera_node-1]  16/01 22:29:30,230 ERROR [281472334096608] (librealsense-exception.h:52) map_device_descriptor Cannot open '/dev/video4 Last Error: No such file or directory
+[realsense2_camera_node-1]  16/01 22:29:30,230 ERROR [281472334096608] (uvc-sensor.cpp:428) acquire_power failed: map_device_descriptor Cannot open '/dev/video4 Last Error: No such file or directory
+[realsense2_camera_node-1]  16/01 22:29:30,230 ERROR [281472334096608] (rs.cpp:256) [rs2_open_multiple( sensor:0xaaaad6047e50, profiles:0xffff4402f560, count:1 ) Backend] map_device_descriptor Cannot open '/dev/video4 Last Error: No such file or directory
+[realsense2_camera_node-1] [31m[ERROR] [1768584570.230721711] [camera.camera]: /home/jetson/ros2_ws/src/realsense-ros/realsense2_camera/src/rs_node_setup.cpp:511:An exception has been thrown: map_device_descriptor Cannot open '/dev/video4 Last Error: No such file or directory[0m
+[realsense2_camera_node-1] [31m[ERROR] [1768584570.230929238] [camera.camera]: /home/jetson/ros2_ws/src/realsense-ros/realsense2_camera/src/rs_node_setup.cpp:393:An exception has been thrown: map_device_descriptor Cannot open '/dev/video4 Last Error: No such file or directory[0m
+[realsense2_camera_node-1] [31m[ERROR] [1768584570.230983800] [camera.camera]: Error updating the sensors: map_device_descriptor Cannot open '/dev/video4 Last Error: No such file or directory[0m
+[realsense2_camera_node-1] [31m[ERROR] [1768584570.458634042] [camera.camera]: The device has been disconnected![0m
+[realsense2_camera_node-1]  16/01 22:29:31,187 ERROR [281471747025120] (librealsense-exception.h:52) map_device_descriptor Cannot open '/dev/video4 Last Error: No such file or directory
+[realsense2_camera_node-1]  16/01 22:29:31,187 ERROR [281471747025120] (uvc-sensor.cpp:428) acquire_power failed: map_device_descriptor Cannot open '/dev/video4 Last Error: No such file or directory
+[realsense2_camera_node-1]  16/01 22:29:31,187 ERROR [281471747025120] (error-handling.cpp:99) Error during polling error handler: map_device_descriptor Cannot open '/dev/video4 Last Error: No such file or directory
+[realsense2_camera_node-1] [0m[INFO] [1768584571.374529357] [camera.camera]: Checking new devices...[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584571.440816923] [camera.camera]: Device with serial number 827112070811 was found.
+[realsense2_camera_node-1] [0m
+[realsense2_camera_node-1] [0m[INFO] [1768584571.440953311] [camera.camera]: Device with physical ID /sys/devices/platform/bus@0/3610000.usb/usb1/1-2/1-2.3/1-2.3:1.0/video4linux/video0 was found.[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584571.440992320] [camera.camera]: Device with name Intel RealSense D435 was found.[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584571.441368653] [camera.camera]: Device with port number 1-2.3 was found.[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584571.441414030] [camera.camera]: Device USB type: 2.1[0m
+[realsense2_camera_node-1] [33m[WARN] [1768584571.441442735] [camera.camera]: Device 827112070811 is connected using a 2.1 port. Reduced performance is expected.[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584571.441515986] [camera.camera]: getParameters...[0m
+[realsense2_camera_node-1] [33m[WARN] [1768584571.526795475] [camera.camera]: For the 'unite_imu_method' param update to take effect, re-enable either gyro or accel stream.[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584571.529011932] [camera.camera]: JSON file is not provided[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584571.530561455] [camera.camera]: Device Name: Intel RealSense D435[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584571.531800664] [camera.camera]: Device Serial No: 827112070811[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584571.533639829] [camera.camera]: Device physical port: /sys/devices/platform/bus@0/3610000.usb/usb1/1-2/1-2.3/1-2.3:1.0/video4linux/video0[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584571.540297009] [camera.camera]: Device FW version: 5.16.0.1[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584571.543815333] [camera.camera]: Device Product ID: 0x0B07[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584571.546013166] [camera.camera]: Sync Mode: On[0m
+[realsense2_camera_node-1] [33m[WARN] [1768584571.876950466] [camera.camera]: re-enable the stream for the change to take effect.[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584571.881510585] [camera.camera]: Set ROS param depth_module.infra_profile to default: 640x480x15[0m
+[realsense2_camera_node-1] [33m[WARN] [1768584571.918120562] [camera.camera]: Could not set param: rgb_camera.power_line_frequency with 3 Range: [0, 2]: parameter 'rgb_camera.power_line_frequency' could not be set: Parameter {rgb_camera.power_line_frequency} doesn't comply with integer range.[0m
+[realsense2_camera_node-1] [33m[WARN] [1768584571.927035449] [camera.camera]: re-enable the stream for the change to take effect.[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584571.966106019] [camera.camera]: Stopping Sensor: Depth Module[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584571.966585171] [camera.camera]: Stopping Sensor: RGB Camera[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584571.985177657] [camera.camera]: Starting Sensor: Depth Module[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584572.000055845] [camera.camera]: Open profile: stream_type: Depth(0), Format: Z16, Width: 640, Height: 480, FPS: 30[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584572.033028870] [camera.camera]: Starting Sensor: RGB Camera[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584572.045141750] [camera.camera]: Open profile: stream_type: Color(0), Format: RGB8, Width: 640, Height: 480, FPS: 30[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584572.142412259] [camera.camera]: RealSense Node Is Up![0m
+[realsense2_camera_node-1]  16/01 22:29:32,610 ERROR [281471730116832] (librealsense-exception.h:52) set_xu(...). xioctl(UVCIOC_CTRL_QUERY) failed Last Error: Protocol error
+[realsense2_camera_node-1]  16/01 22:29:32,610 ERROR [281471730116832] (global_timestamp_reader.cpp:253) Error during time_diff_keeper polling: set_xu(...). xioctl(UVCIOC_CTRL_QUERY) failed Last Error: Protocol error
+[realsense2_camera_node-1]  16/01 22:29:32,711 ERROR [281471730116832] (librealsense-exception.h:52) set_xu(...). xioctl(UVCIOC_CTRL_QUERY) failed Last Error: Protocol error
+[realsense2_camera_node-1]  16/01 22:29:32,711 ERROR [281471730116832] (global_timestamp_reader.cpp:253) Error during time_diff_keeper polling: set_xu(...). xioctl(UVCIOC_CTRL_QUERY) failed Last Error: Protocol error
+[realsense2_camera_node-1]  16/01 22:29:32,735 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,736 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,736 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,736 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,736 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,736 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,736 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,736 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,736 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,736 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,736 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,736 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,736 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,736 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,736 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,736 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,736 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,736 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,736 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,737 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,745 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,745 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,745 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,745 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,745 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,745 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,745 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,745 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,745 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,745 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,745 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,745 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,745 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,745 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,745 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,745 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,745 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,745 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,745 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,745 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,745 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,745 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,745 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,745 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,745 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,745 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,745 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,745 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,745 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,745 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,745 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,745 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,745 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,745 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,745 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,745 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,745 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,745 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,745 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,745 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,745 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,745 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,745 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,745 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,745 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,745 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,746 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,746 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,746 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,746 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,746 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,746 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,746 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,746 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,746 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,746 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,746 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,746 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,746 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,746 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,746 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,746 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,746 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,746 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,747 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,747 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,747 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,747 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,747 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,747 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,747 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,747 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,747 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,747 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,747 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,747 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,756 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,757 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,757 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,757 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,757 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,757 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,757 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,757 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,757 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,757 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,757 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,757 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,758 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,758 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,758 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,758 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,759 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,759 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,759 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,759 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,759 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,759 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,759 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,759 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,759 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,759 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,759 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,759 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,759 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,759 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,759 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,760 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,760 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,760 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,760 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,760 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,760 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,760 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,760 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,760 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,760 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,760 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,760 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,760 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,760 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,760 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,760 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,760 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,760 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,760 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,760 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,760 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,760 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,760 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,760 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,760 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,760 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,761 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,761 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,761 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,761 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,761 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,761 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,761 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,761 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,761 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,761 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,761 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,761 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,761 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,761 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,761 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,761 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,761 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,761 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,761 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,761 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,761 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,761 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,761 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,761 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,807 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,807 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,807 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,807 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,807 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,807 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,807 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,808 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,808 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,808 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,808 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,808 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,808 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,808 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,808 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,808 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[rgbd_odometry-6] [33m[WARN] [1768584572.845201232] [rtabmap.rgbd_odometry]: rgbd_odometry: Did not receive data since 5 seconds! Make sure the input topics are published ("$ rostopic hz my_topic") and the timestamps in their header are set. 
+[rgbd_odometry-6] rgbd_odometry subscribed to:
+[rgbd_odometry-6]    /rtabmap/rgbd_image_relay[0m
+[realsense2_camera_node-1]  16/01 22:29:32,808 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,808 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,808 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,808 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,808 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,808 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,808 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,808 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,808 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,808 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,808 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,813 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,813 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,813 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,813 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,813 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,813 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,813 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,813 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,813 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,813 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,813 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,813 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,813 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,814 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,814 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,814 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,814 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,814 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,814 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,814 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,814 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,814 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,814 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,814 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,814 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,814 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,814 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,814 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,814 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,814 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,814 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,814 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,814 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,814 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,814 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,814 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,814 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,814 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,814 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,814 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,814 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,814 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,814 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,814 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,814 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,814 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,814 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,814 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,814 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,814 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,814 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,814 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,814 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,814 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,867 ERROR [281471730116832] (librealsense-exception.h:52) acquire: Cannot open '/dev/video0 Last Error: No such file or directory
+[realsense2_camera_node-1]  16/01 22:29:32,867 ERROR [281471730116832] (global_timestamp_reader.cpp:253) Error during time_diff_keeper polling: acquire: Cannot open '/dev/video0 Last Error: No such file or directory
+[realsense2_camera_node-1]  16/01 22:29:32,867 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,867 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,867 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,867 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,867 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,867 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,867 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,867 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,867 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,868 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,868 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,868 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,868 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1] [31m[ERROR] [1768584572.953120636] [camera.camera]: The device has been disconnected![0m
+[realsense2_camera_node-1] [0m[INFO] [1768584572.954189759] [camera.camera]: Stop Sensor: Depth Module[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584572.954301763] [camera.camera]: Close Sensor. [0m
+[realsense2_camera_node-1]  16/01 22:29:32,868 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,868 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,868 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,868 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,868 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,868 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,868 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,868 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,868 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,868 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,868 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,868 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,868 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,868 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,868 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,868 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,868 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,868 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,868 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,868 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,868 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,868 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,868 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,868 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,868 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,868 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,868 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,868 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,868 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,868 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,868 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,868 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,868 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,868 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,868 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,868 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,868 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,868 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,868 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,868 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,868 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,868 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,868 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,868 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,868 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,868 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,868 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,868 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,869 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,869 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,869 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,870 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,870 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,871 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1] [0m[INFO] [1768584573.010657992] [camera.camera]: Close Sensor - Done. [0m
+[realsense2_camera_node-1] [0m[INFO] [1768584573.010799725] [camera.camera]: Stop Sensor: RGB Camera[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584573.010847631] [camera.camera]: Close Sensor. [0m
+[realsense2_camera_node-1]  16/01 22:29:32,871 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,872 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,872 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,872 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,872 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,872 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,872 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,872 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,872 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,873 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,873 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:32,873 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:33,009 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:33,009 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:33,009 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:33,009 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:33,009 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:33,009 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:33,009 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:33,009 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:33,010 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:33,010 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:33,010 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:33,010 ERROR [281472342550752] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 29 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:33,010 ERROR [281472351004896] (backend-v4l2.cpp:3213) xioctl(VIDIOC_QBUF) failed when requesting new frame! fd: 21 error: No such device
+[realsense2_camera_node-1]  16/01 22:29:33,010 ERROR [281472485222624] (librealsense-exception.h:52) xioctl(VIDIOC_STREAMOFF) failed for buf_type=13 Last Error: No such device
+[realsense2_camera_node-1]  16/01 22:29:33,010 ERROR [281472485222624] (uvc-sensor.cpp:452) release_power failed: xioctl(VIDIOC_STREAMOFF) failed for buf_type=13 Last Error: No such device
+[realsense2_camera_node-1]  16/01 22:29:33,010 ERROR [281471730116832] (librealsense-exception.h:52) acquire: Cannot open '/dev/video0 Last Error: No such file or directory
+[realsense2_camera_node-1]  16/01 22:29:33,012 ERROR [281472485222624] (librealsense-exception.h:52) xioctl(VIDIOC_STREAMOFF) failed for buf_type=13 Last Error: No such device
+[realsense2_camera_node-1]  16/01 22:29:33,012 ERROR [281471730116832] (global_timestamp_reader.cpp:253) Error during time_diff_keeper polling: acquire: Cannot open '/dev/video0 Last Error: No such file or directory
+[realsense2_camera_node-1]  16/01 22:29:33,012 ERROR [281472307202272] (librealsense-exception.h:52) map_device_descriptor Cannot open '/dev/video0 Last Error: No such file or directory
+[realsense2_camera_node-1]  16/01 22:29:33,012 ERROR [281472307202272] (uvc-sensor.cpp:428) acquire_power failed: map_device_descriptor Cannot open '/dev/video0 Last Error: No such file or directory
+[realsense2_camera_node-1]  16/01 22:29:33,012 ERROR [281472307202272] (error-handling.cpp:99) Error during polling error handler: map_device_descriptor Cannot open '/dev/video0 Last Error: No such file or directory
+[realsense2_camera_node-1] [0m[INFO] [1768584573.118049123] [camera.camera]: Close Sensor - Done. [0m
+[rtabmap-7] [33m[WARN] [1768584573.998955014] [rtabmap.rtabmap]: rtabmap: Did not receive data since 5 seconds! Make sure the input topics are published ("$ ros2 topic hz my_topic") and the timestamps in their header are set. If topics are coming from different computers, make sure the clocks of the computers are synchronized ("ntpdate"). Ajusting topic_queue_size (10) and sync_queue_size (10) can also help for better synchronization if framerates and/or delays are different. If topics are not published at the same rate, you could increase "sync_queue_size" and/or "topic_queue_size" parameters (current=10 and 10 respectively).
+[rtabmap-7] rtabmap subscribed to (approx sync):
+[rtabmap-7]    /rtabmap/odom \
+[rtabmap-7]    /rtabmap/rgbd_image_relay \
+[rtabmap-7]    /rtabmap/odom_info[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584574.139611658] [camera.camera]: Checking new devices...[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584574.193341177] [camera.camera]: Device with serial number 827112070811 was found.
+[realsense2_camera_node-1] [0m
+[realsense2_camera_node-1] [0m[INFO] [1768584574.193473949] [camera.camera]: Device with physical ID /sys/devices/platform/bus@0/3610000.usb/usb1/1-2/1-2.3/1-2.3:1.0/video4linux/video0 was found.[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584574.193610049] [camera.camera]: Device with name Intel RealSense D435 was found.[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584574.194018479] [camera.camera]: Device with port number 1-2.3 was found.[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584574.194061296] [camera.camera]: Device USB type: 2.1[0m
+[realsense2_camera_node-1] [33m[WARN] [1768584574.194088401] [camera.camera]: Device 827112070811 is connected using a 2.1 port. Reduced performance is expected.[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584574.194164692] [camera.camera]: getParameters...[0m
+[realsense2_camera_node-1] [33m[WARN] [1768584574.195143188] [camera.camera]: For the 'unite_imu_method' param update to take effect, re-enable either gyro or accel stream.[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584574.195212982] [camera.camera]: JSON file is not provided[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584574.195245975] [camera.camera]: Device Name: Intel RealSense D435[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584574.195269048] [camera.camera]: Device Serial No: 827112070811[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584574.195299673] [camera.camera]: Device physical port: /sys/devices/platform/bus@0/3610000.usb/usb1/1-2/1-2.3/1-2.3:1.0/video4linux/video0[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584574.195319386] [camera.camera]: Device FW version: 5.16.0.1[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584574.195335610] [camera.camera]: Device Product ID: 0x0B07[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584574.195351611] [camera.camera]: Sync Mode: On[0m
+[realsense2_camera_node-1] [33m[WARN] [1768584574.583100286] [camera.camera]: re-enable the stream for the change to take effect.[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584574.588391405] [camera.camera]: Set ROS param depth_module.infra_profile to default: 640x480x15[0m
+[realsense2_camera_node-1] [33m[WARN] [1768584574.661731842] [camera.camera]: Could not set param: rgb_camera.power_line_frequency with 3 Range: [0, 2]: parameter 'rgb_camera.power_line_frequency' could not be set: Parameter {rgb_camera.power_line_frequency} doesn't comply with integer range.[0m
+[realsense2_camera_node-1] [33m[WARN] [1768584574.679535662] [camera.camera]: re-enable the stream for the change to take effect.[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584574.814754399] [camera.camera]: Stopping Sensor: Depth Module[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584574.814976326] [camera.camera]: Stopping Sensor: RGB Camera[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584574.897206337] [camera.camera]: Starting Sensor: Depth Module[0m
+[realsense2_camera_node-1]  16/01 22:29:34,937 ERROR [281472485222624] (librealsense-exception.h:52) xioctl(VIDIOC_S_FMT) failed, errno=16 Last Error: Device or resource busy
+[realsense2_camera_node-1]  16/01 22:29:34,937 ERROR [281472485222624] (rs.cpp:256) [rs2_open_multiple( sensor:0xffff44026fd0, profiles:0xffff44052aa0, count:1 ) Backend] xioctl(VIDIOC_S_FMT) failed, errno=16 Last Error: Device or resource busy
+[realsense2_camera_node-1] [31m[ERROR] [1768584574.937821695] [camera.camera]: /home/jetson/ros2_ws/src/realsense-ros/realsense2_camera/src/rs_node_setup.cpp:511:An exception has been thrown: xioctl(VIDIOC_S_FMT) failed, errno=16 Last Error: Device or resource busy[0m
+[realsense2_camera_node-1] [31m[ERROR] [1768584574.937993252] [camera.camera]: /home/jetson/ros2_ws/src/realsense-ros/realsense2_camera/src/rs_node_setup.cpp:393:An exception has been thrown: xioctl(VIDIOC_S_FMT) failed, errno=16 Last Error: Device or resource busy[0m
+[realsense2_camera_node-1] Failed to start device: xioctl(VIDIOC_S_FMT) failed, errno=16 Last Error: Device or resource busy
+[realsense2_camera_node-1] [0m[INFO] [1768584574.938219596] [camera.camera]: Stopping Sensor: Depth Module[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584574.938388273] [camera.camera]: Stopping Sensor: RGB Camera[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584574.964340106] [camera.camera]: Starting Sensor: Depth Module[0m
+[realsense2_camera_node-1]  16/01 22:29:34,972 ERROR [281472342550752] (librealsense-exception.h:52) xioctl(VIDIOC_S_FMT) failed, errno=16 Last Error: Device or resource busy
+[realsense2_camera_node-1]  16/01 22:29:34,972 ERROR [281472342550752] (rs.cpp:256) [rs2_open_multiple( sensor:0xffff44026fd0, profiles:0xffff44052aa0, count:1 ) Backend] xioctl(VIDIOC_S_FMT) failed, errno=16 Last Error: Device or resource busy
+[realsense2_camera_node-1] [31m[ERROR] [1768584574.973027721] [camera.camera]: /home/jetson/ros2_ws/src/realsense-ros/realsense2_camera/src/rs_node_setup.cpp:511:An exception has been thrown: xioctl(VIDIOC_S_FMT) failed, errno=16 Last Error: Device or resource busy[0m
+[realsense2_camera_node-1] [31m[ERROR] [1768584574.973159981] [camera.camera]: /home/jetson/ros2_ws/src/realsense-ros/realsense2_camera/src/rs_node_setup.cpp:393:An exception has been thrown: xioctl(VIDIOC_S_FMT) failed, errno=16 Last Error: Device or resource busy[0m
+[realsense2_camera_node-1] [31m[ERROR] [1768584574.973208175] [camera.camera]: Error updating the sensors: xioctl(VIDIOC_S_FMT) failed, errno=16 Last Error: Device or resource busy[0m
+[rtabmap_viz-8] [33m[WARN] [1768584575.063363183] [rtabmap.rtabmap_viz]: rtabmap_viz: Did not receive data since 5 seconds! Make sure the input topics are published ("$ ros2 topic hz my_topic") and the timestamps in their header are set. If topics are coming from different computers, make sure the clocks of the computers are synchronized ("ntpdate"). Ajusting topic_queue_size (10) and sync_queue_size (10) can also help for better synchronization if framerates and/or delays are different. If topics are not published at the same rate, you could increase "sync_queue_size" and/or "topic_queue_size" parameters (current=10 and 10 respectively).
+[rtabmap_viz-8] rtabmap_viz subscribed to (approx sync):
+[rtabmap_viz-8]    /rtabmap/odom \
+[rtabmap_viz-8]    /rtabmap/rgbd_image_relay \
+[rtabmap_viz-8]    /rtabmap/odom_info[0m
+[WARNING] [launch]: user interrupted with ctrl-c (SIGINT)
+[rgbd_odometry-6] [0m[INFO] [1768584575.172475874] [rclcpp]: signal_handler(signum=2)[0m
+[realsense2_camera_node-1] [0m[INFO] [1768584575.172571845] [rclcpp]: signal_handler(signum=2)[0m
+[rtabmap_viz-8] [0m[INFO] [1768584575.172707721] [rtabmap.rtabmap_viz]: rtabmap_viz stopping spinner...[0m
+[rgbd_relay-5] [0m[INFO] [1768584575.173202298] [rclcpp]: signal_handler(signum=2)[0m
+[static_transform_publisher-3] [INFO] [1768584575.173306301] [rclcpp]: signal_handler(signum=2)
+[rtabmap_viz-8] [0m[INFO] [1768584575.176924533] [rtabmap.rtabmap_viz]: rtabmap_viz: All done! Closing...[0m
+[rtabmap-7] [0m[INFO] [1768584575.178994329] [rclcpp]: signal_handler(signum=2)[0m
+[rtabmap-7] [0m[INFO] [1768584575.229979276] [rtabmap.rtabmap]: Parameters are not saved (No configuration file provided...)[0m
+[rtabmap-7] rtabmap: Saving database/long-term memory... (located at /home/jetson/.ros/rtabmap.db)
+[rtabmap-7] rtabmap: Saving database/long-term memory...done! (located at /home/jetson/.ros/rtabmap.db, 0 MB)
+[imu_filter_madgwick_node-4] [INFO] [1768584575.185906589] [rclcpp]: signal_handler(signum=2)
+[ros2_mpu6500-2] [0m[INFO] [1768584575.259086797] [rclcpp]: signal_handler(signum=2)[0m
+[ros2_mpu6500-2] MPU6500 deinitialized
+[INFO] [static_transform_publisher-3]: process has finished cleanly [pid 41013]
+[INFO] [imu_filter_madgwick_node-4]: process has finished cleanly [pid 41015]
+[INFO] [ros2_mpu6500-2]: process has finished cleanly [pid 41011]
+[realsense2_camera_node-1]  16/01 22:29:35,897 ERROR [281471738570976] (librealsense-exception.h:52) map_device_descriptor Cannot open '/dev/video0 Last Error: No such file or directory
+[realsense2_camera_node-1]  16/01 22:29:35,897 ERROR [281471738570976] (uvc-sensor.cpp:428) acquire_power failed: map_device_descriptor Cannot open '/dev/video0 Last Error: No such file or directory
+[realsense2_camera_node-1]  16/01 22:29:35,897 ERROR [281471738570976] (error-handling.cpp:99) Error during polling error handler: map_device_descriptor Cannot open '/dev/video0 Last Error: No such file or directory
+[INFO] [rgbd_relay-5]: process has finished cleanly [pid 41026]
+[INFO] [rgbd_odometry-6]: process has finished cleanly [pid 41039]
+[INFO] [rtabmap-7]: process has finished cleanly [pid 41042]
+[ERROR] [rtabmap_viz-8]: process has died [pid 41054, exit code 255, cmd '/opt/ros/humble/lib/rtabmap_viz/rtabmap_viz ~/.ros/rtabmap_gui.ini --ros-args --log-level rtabmap.rtabmap_viz:=info --log-level rtabmap_viz:=info --ros-args -r __node:=rtabmap_viz -r __ns:=/rtabmap -p use_sim_time:=False --params-file /tmp/launch_params_8ta3uarn -r rgb/image:=/camera/camera/color/image_raw -r depth/image:=/camera/camera/depth/image_rect_raw -r rgb/camera_info:=/camera/camera/color/camera_info -r rgbd_image:=rgbd_image_relay -r left/image_rect:=/stereo_camera/left/image_rect_color -r right/image_rect:=/stereo_camera/right/image_rect -r left/camera_info:=/stereo_camera/left/camera_info -r right/camera_info:=/stereo_camera/right/camera_info -r scan:=/scan -r scan_cloud:=/scan_cloud -r odom:=odom'].
+[INFO] [realsense2_camera_node-1]: process has finished cleanly [pid 41009]

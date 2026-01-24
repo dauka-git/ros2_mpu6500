@@ -5,10 +5,12 @@ mpu6500_sensor:
     publish_rate_hz: 100
     frame_id: "imu_link"
     
-    # Reset offsets - recalibrate after changes
-    gyro_x_offset: 0.0
-    gyro_y_offset: 0.0
-    gyro_z_offset: 0.0
-    accel_x_offset: 0.0
-    accel_y_offset: 0.0
-    accel_z_offset: 0.0
+    # Gyroscope offsets (rad/s) - to zero out drift
+    gyro_x_offset: -0.132565   # Subtract this to get ~0
+    gyro_y_offset: 0.041835    # Subtract this to get ~0
+    gyro_z_offset: 0.015721    # Subtract this to get ~0
+    
+    # Accelerometer offsets (m/s²)
+    accel_x_offset: 0.100556   # Subtract to get 0
+    accel_y_offset: 0.059855   # Subtract to get 0
+    accel_z_offset: 0.020592   # 9.830592 - 9.81 = 0.020592

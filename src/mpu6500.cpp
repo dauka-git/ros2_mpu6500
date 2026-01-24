@@ -119,7 +119,8 @@ Mpu6500Hal::Mpu6500_Error_t Mpu6500::Mpu6500_GetAccelData(Mpu6500_AccelData_t &A
     float gyro_dps[3];
     uint16_t len = 1;
 
-    uint8_t res = mpu6500_read(&handle_, accel_raw, accel_g, gyro_raw, gyro_dps, &len);
+// CORRECT - passes pointer to entire array
+    uint8_t res = mpu6500_read(&handle_, &accel_raw, &accel_g, &gyro_raw, &gyro_dps, &len);
     if (res != 0) {
         std::cerr << "Failed to read MPU6500 data (error: " << static_cast<int>(res) << ")" << std::endl;
         return Mpu6500Hal::MPU6500_ERR;
@@ -152,7 +153,7 @@ Mpu6500Hal::Mpu6500_Error_t Mpu6500::Mpu6500_GetGyroData(Mpu6500_GyroData_t &Gyr
     float gyro_dps[3];
     uint16_t len = 1;
 
-    uint8_t res = mpu6500_read(&handle_, accel_raw, accel_g, gyro_raw, gyro_dps, &len);
+    uint8_t res = mpu6500_read(&handle_, &accel_raw, &accel_g, &gyro_raw, &gyro_dps, &len);
     if (res != 0) {
         std::cerr << "Failed to read MPU6500 data (error: " << static_cast<int>(res) << ")" << std::endl;
         return Mpu6500Hal::MPU6500_ERR;
