@@ -6,8 +6,8 @@ import numpy as np
 import sys
 
 class IMUCalibration(Node):
-    def init(self):
-        super().init('imu_calibration')
+    def __init__(self):
+        super().__init__('imu_calibration')
         self.subscription = self.create_subscription(
             Imu,
             '/imu/data',
